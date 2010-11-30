@@ -23,10 +23,10 @@ class Veiculo extends Base_Veiculo
     public function getImage()
     {
         $dql = Doctrine_Query::create()
-                ->from('VehicleImage CI')
-                ->leftJoin('CI.Image')
-                ->where('vehicle_id = ?', $this->id)
-                ->orderBy('priority ASC');
+                ->from('VeiculoImagem VI')
+                ->leftJoin('VI.Imagem')
+                ->where('veiculo_id = ?', $this->id)
+                ->orderBy('ordem ASC');
         if ($dql->count()) {
             $image = $dql->fetchOne();
             return $image;
