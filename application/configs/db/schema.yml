@@ -1,0 +1,378 @@
+options:
+  type: INNODB
+  collate: utf8_general_ci
+  charset: utf8
+
+UserRole:
+  tableName: user_role
+  columns:
+    id:
+      type: integer
+      primary: true
+      unsigned: true
+      autoincrement: true
+    name: string(255)
+  relations:
+    Users:
+      class: User
+      foreign: role_id
+      local: id
+      type: many
+      onDelete: RESTRICT
+
+User:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    name:
+      type: string(255)
+      unique: true
+    email:
+      type: string(255)
+      unique: true
+      notnull: true
+    login:
+      type: string(50)
+      unique: true
+      notnull: true
+    enabled:
+      type: boolean
+      notnull: true
+      default: false
+    password:
+      type: string(40)
+      notnull: true
+    password_recovery_hash:
+      type: string(40)
+      notnull: false
+    password_recovery_expiration_date:
+      type: datetime
+      notnull: false
+    role_id:
+      type: integer
+      unsigned: true
+      notnull: true
+    image: string(255)
+  actAs: [Timestampable]
+  relations:
+    Role:
+      class: UserRole
+      local: role_id
+      foreign: id
+
+Marca:
+  tableName: marca
+  columns:
+    id:
+      type: integer
+      primary: true
+      unsigned: true
+      autoincrement: true
+    nome:
+      type: string(255)
+      unique: true
+      notnull: true
+    imagem_id:
+      type: integer
+      unsigned: true
+      notnull: false
+    url:
+      type: string(255)
+      unique: true
+      notnull: true
+  actAs: [Timestampable]
+  relations:
+    Veiculos:
+      class: Veiculo
+      foreign: marca_id
+      local: id
+      type: many
+      onDelete: RESTRICT
+    Logo:
+      class: Imagem
+      local: imagem_id
+      foreign: id
+      onDelete: RESTRICT
+
+
+VeiculoTipo:
+  tableName: veiculo_tipo
+  columns:
+    id:
+      type: integer
+      primary: true
+      unsigned: true
+      autoincrement: true
+    nome:
+      type: string(255)
+      unique: true
+      notnull: true
+    habilitacao:
+      type: string(5)
+      unique: true
+  actAs: [Timestampable]
+  relations:
+    Veiculos:
+      class: Veiculo
+      foreign: tipo_id
+      local: id
+      type: many
+      onDelete: RESTRICT
+
+Combustivel:
+  tableName: combustivel
+  columns:
+    id:
+      type: integer
+      primary: true
+      unsigned: true
+      autoincrement: true
+    nome:
+      type: string(255)
+      unique: true
+      notnull: true
+    abreviacao:
+      type: string(255)
+      unique: true
+      notnull: true
+  actAs: [Timestampable]
+  relations:
+    Veiculos:
+      class: Veiculo
+      foreign: combustivel_id
+      local: id
+      type: many
+      onDelete: RESTRICT
+  
+Veiculo:
+  tableName: veiculo
+  columns:
+    id:
+      type: integer
+      primary: true
+      unsigned: true
+      autoincrement: true
+    modelo:
+      type: string(255)
+      unique: true
+      notnull: true
+    cor:
+      type: string(255)
+      notnull: true
+    marca_id:
+      type: integer
+      notnull: true
+      unsigned: true
+    combustivel_id:
+      type: integer
+      notnull: true
+      unsigned: true
+    tipo_id:
+      type: integer
+      notnull: true
+      unsigned: true
+    situacao_id:
+      type: integer
+      notnull: true
+      unsigned: true
+    situacao_modificada_em:
+      type: timestamp
+    valor:
+      type: float
+      default: 0
+    exibir_valor:
+      type: boolean
+      default: false
+      notnull: true
+    ano:
+      type: integer
+      notnull: true
+    ano_modelo:
+      type: integer
+      notnull: true
+    ordem:
+      type: integer
+      default: 0
+      notnull: true
+    placa:
+      type: string(8)
+      unique: true
+      notnull: true
+    url:
+      type: string(255)
+      unique: true
+      notnull: true
+  actAs: [Timestampable]
+  indexes:
+    modelo:
+      fields:
+        modelo: []
+  relations:
+    Situacao:
+      class: VeiculoSituacao
+      local: situacao_id
+      foreign: id
+    Tipo:
+      class: VeiculoTipo
+      local: tipo_id
+      foreign: id
+    Marca:
+      class: Marca
+      local: marca_id
+      foreign: id
+    Combustivel:
+      class: Combustivel
+      local: combustivel_id
+      foreign: id
+    Caracteristicas:
+      class: VeiculoCaracteristica
+      foreign: veiculo_id
+      local: id
+      type: many
+    Imagens:
+      class: VeiculoImagem
+      foreign: veiculo_id
+      local: id
+      type: many
+
+VeiculoCaracteristica:
+  tableName: veiculo_caracteristica
+  columns:
+    id:
+      type: integer
+      primary: true
+      unsigned: true
+      autoincrement: true
+    veiculo_id:
+      type: integer
+      unsigned: true
+      notnull: true
+    ordem:
+      type: integer
+      unsigned: true
+      notnull: true
+    descricao:
+      type: string(255)
+      notnull: true
+  actAs: [Timestampable]
+  relations:
+    Veiculo:
+      class: Veiculo
+      local: veiculo_id
+      foreign: id
+      onDelete: CASCADE
+  indexes:
+    veiculo_descricao_uk:
+      fields:
+        veiculo_id: []
+        descricao: []
+      type: unique
+
+VeiculoImagem:
+  tableName: imagem_veiculo
+  columns:
+    id:
+      type: integer
+      primary: true
+      unsigned: true
+      autoincrement: true
+    veiculo_id:
+      type: integer
+      unsigned: true
+      notnull: true
+    imagem_id:
+      type: integer
+      unsigned: true
+      notnull: true
+    ordem:
+      type: integer
+      unsigned: true
+      notnull: true
+    ilustrativa:
+      type: boolean
+      notnull: true
+    alt:
+      type: string(255)
+      notnull: true
+    title:
+      type: string(255)
+      notnull: true
+    descricao:
+      type: string(255)
+      notnull: true
+  actAs: [Timestampable]
+  relations:
+    Veiculo:
+      class: Veiculo
+      local: veiculo_id
+      foreign: id
+      onDelete: CASCADE
+    Imagem:
+      class: Imagem
+      local: imagem_id
+      foreign: id
+  indexes:
+    veiculo_imagem:
+      fields:
+        imagem_id: []
+        veiculo_id: []
+      type: unique
+
+VeiculoSituacao:
+  tableName: veiculo_situacao
+  columns:
+    id:
+      type: integer
+      primary: true
+      unsigned: true
+      autoincrement: true
+    nome:
+      type: string(255)
+      notnull: true
+      unique: ture
+  relations:
+    Veiculos:
+      class: Veiculo
+      local: id
+      foreign: situacao_id
+
+
+Imagem:
+  tableName: imagem
+  columns:
+    id:
+      type: integer
+      primary: true
+      unsigned: true
+      autoincrement: true
+    arquivo:
+      type: string(255)
+      unique: true
+      notnull: true
+    md5:
+      type: string(32)
+      unique: true
+      notnull: true
+    descricao:
+      type: string(255)
+      notnull: true
+  relations:
+    VeiculoImagem:
+      class: VeiculoImagem
+      foreign: imagem_id
+      local: id
+      type: many
+      onDelete: RESTRICT
+    Marcas:
+      class: Marca
+      foreign: imagem_id
+      local: id
+      type: many
+      onDelete: RESTRICT
+  actAs: [Timestampable]
+  indexes:
+    descricao:
+      fields: [descricao]
+
