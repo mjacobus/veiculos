@@ -5,7 +5,7 @@
  *
  * @author marcelo
  */
-class App_Model_Crud extends App_Model
+class App_Model_Crud extends App_Model_Abstract
 {
 
     /**
@@ -66,12 +66,12 @@ class App_Model_Crud extends App_Model
     /**
      * Try to save a record
      * @param array $values
-     * @return bool|int false when its not ok and the record id when it is ok.
+     * @return Doctrine_Record|false false when its not ok and the record id when it is ok.
      */
     public function save(array $values, $id = null)
     {
         try {
-            if ($this->getForm()->isValid($values)) {
+            if ($this->isValid($values)) {
                 $values = $this->getForm()->getValues();
                 $id = $this->persist($values, $id);
                 $this->addMessage($this->_crudMessages[self::SAVE_OK]);
@@ -106,16 +106,6 @@ class App_Model_Crud extends App_Model
             $this->addMessage($e->getMessage());
         }
         return false;
-    }
-
-    public function create(array $values)
-    {
-
-    }
-
-    public function getForm()
-    {
-        
     }
 
     /**
@@ -207,6 +197,44 @@ class App_Model_Crud extends App_Model
     public function getForm()
     {
         return $this->_form;
+    }
+
+    /**
+     *
+     * @param <type> $values 
+     */
+    public function create($values)
+    {
+        return $this->save($values);
+    }
+
+    /**
+     * Check whether is valid
+     * @param array $values
+     * @return bool
+     */
+    public function isValid($values)
+    {
+        return $this->getForm()->isValid($values);
+    }
+
+    /**
+     * Persist a Record
+     * @param array $values the values to persist
+     * @param int $id the record id
+     * @throws Exception
+     * @return Doctrine_Record
+     */
+    public function persist($values, $id = null)
+    {
+        if ($id !== null) {
+            $record = $this->getById($this->getTablelName(), $id);
+        } else {
+            $record = Doctrine_Core::getTable($this->getTablelName())->create();
+        }
+        $record->fromArray($values);
+        $record->save();
+        return $record;
     }
 
 }

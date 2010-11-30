@@ -61,5 +61,22 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_Registry::set('securitySalt', $salt);
     }
 
+    /**
+     * Autoloader for Admin module
+     */
+    public function _initAdminModuleAutoloader()
+    {
+        //TODO: take this config to application.ini
+        $resourceLoader = new Zend_Loader_Autoloader_Resource(
+                array(
+                    'basePath' => APPLICATION_PATH . '/modules/admin',
+                    'namespace' => 'Admin',
+                )
+        );
+        $resourceLoader->addResourceType('model', 'models/', 'Model');
+        $resourceLoader->addResourceType('form', 'forms/', 'Form');
+        return $resourceLoader;
+    }
+
 }
 

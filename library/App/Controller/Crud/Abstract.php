@@ -43,7 +43,7 @@ class App_Controller_Crud_Abstract extends Zend_Controller_Action
      * Do Create
      * @param Zend_Request_Http_Request $request 
      */
-    public function doCreate(Zend_Request_Http_Request $request)
+    public function doCreate(Zend_Controller_Request_Http $request)
     {
         $record = $this->model->create($request->getPost());
         if ($record) {
@@ -57,7 +57,7 @@ class App_Controller_Crud_Abstract extends Zend_Controller_Action
      *
      * @param Zend_Request_Http_Request $request 
      */
-    public function doAjaxCreate(Zend_Request_Http_Request $request)
+    public function doAjaxCreate(Zend_Controller_Request_Http $request)
     {
         $response = array(
             'success' => false,
@@ -83,8 +83,7 @@ class App_Controller_Crud_Abstract extends Zend_Controller_Action
 
     public function createAction()
     {
-
-
+        $request = $this->getRequest();
         if ($request->isXmlHttpRequest()) {
             $this->_helper->layout->disableLayout();
             if ($request->isPost()) {
@@ -93,6 +92,7 @@ class App_Controller_Crud_Abstract extends Zend_Controller_Action
         } else if ($request->isPost()) {
             $this->doCreate($request);
         }
+        $this->view->form = $this->model->getForm();
     }
 
     public function readAction()
