@@ -156,7 +156,6 @@ Veiculo:
       autoincrement: true
     modelo:
       type: string(255)
-      unique: true
       notnull: true
     cor:
       type: string(255)

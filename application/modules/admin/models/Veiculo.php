@@ -3,9 +3,42 @@
 class Admin_Model_Veiculo extends App_Model_Crud
 {
 
-    public function __construct()
+    protected $_tableName = 'Veiculo';
+
+    /**
+     * Mapping of unique keys
+     * @var array
+     */
+    protected $_ukMapping = array(
+        'placa' => array(
+            'field' => 'placa',
+            'label' => 'placa',
+            'message' => 'Um registro já existe com "{label}" igual a "{value}" '
+        )
+    );
+    
+    public function init()
     {
-        $this->_form = new Admin_Form_Veiculo();
+        $this->_form = new Admin_Form_Veiculo($this);
+
+
+        $dql = Doctrine_Query::create()->from('VeiculoTipo');
+        $this->_form->tipo_id->addMultiOptionFromDql(
+            $dql, 'id', 'nome', array(null => 'Selecione')
+        );
+
+        $dql = Doctrine_Query::create()->from('Marca')->orderBy('nome');
+        $this->_form->marca_id->addMultiOptionFromDql(
+            $dql, 'id', 'nome', array(null => 'Selecione')
+        );
+        
+        $dql = Doctrine_Query::create()->from('Combustivel')->orderBy('nome');
+        $this->_form->combustivel_id->addMultiOptionFromDql(
+            $dql, 'id', 'nome', array(null => 'Selecione'));
+
+        $dql = Doctrine_Query::create()->from('VeiculoSituacao')->orderBy('nome');
+        $this->_form->situacao_id->addMultiOptionFromDql(
+            $dql, 'id', 'nome', array(null => 'Selecione'));
     }
 
 }

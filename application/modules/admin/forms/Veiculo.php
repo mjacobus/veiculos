@@ -1,29 +1,34 @@
 <?php
 
-class Admin_Form_Veiculo extends App_Form
+class Admin_Form_Veiculo extends App_Form_Abstract
 {
 
+    /**
+     *
+     * @var array
+     */
     protected $_availableYears = array();
 
     public function init()
     {
+        $this->setAttrib('class','crud');
         $currentYear = ((int) date('Y') + 1);
         for ($i = $currentYear; $i >= 1920; $i--) {
             $this->_availableYears[$i] = $i;
         }
 
-        //$this->addTipo();
+        $this->addTipo();
         $this->addModelo();
         $this->addPlaca();
-        //$this->addMarca();
-        //$this->addCombustivel();
+        $this->addMarca();
+        $this->addCombustivel();
         $this->addCor();
         $this->addAno();
         $this->addAnoModelo();
         $this->addValor();
         $this->addExibirValor();
         $this->addOrdem();
-        //$this->addSituacao();
+        $this->addSituacao();
         $this->addSubmit();
     }
 
@@ -66,14 +71,8 @@ class Admin_Form_Veiculo extends App_Form
      */
     public function addMarca()
     {
-        $element = new MyZend_Form_Element_DoctrineSelect('brand_id');
-        $element->setLabel('Marca')
-            ->addMultiOptionFromDql(
-                Admin_Model_Brand::getSelectDql(),
-                'id',
-                'name',
-                array(null => 'Selecione')
-        );
+        $element = new MyZend_Form_Element_DoctrineSelect('marca_id');
+        $element->setLabel('Marca');
         $this->setRequired($element);
         $this->addElement($element);
         return $this;
@@ -86,13 +85,7 @@ class Admin_Form_Veiculo extends App_Form
     public function addCombustivel()
     {
         $element = new MyZend_Form_Element_DoctrineSelect('combustivel_id');
-        $element->setLabel('Combustível')
-            ->addMultiOptionFromDql(
-                Admin_Model_Fuel::getSelectDql(),
-                'id',
-                'name',
-                array(null => 'Selecione')
-        );
+        $element->setLabel('Combustível');
         $this->setRequired($element);
         $this->addElement($element);
         return $this;
@@ -105,13 +98,7 @@ class Admin_Form_Veiculo extends App_Form
     public function addTipo()
     {
         $element = new MyZend_Form_Element_DoctrineSelect('tipo_id');
-        $element->setLabel('Tipo')
-            ->addMultiOptionFromDql(
-                Admin_Model_Vehicle::getTypeDql(),
-                'id',
-                'name',
-                array(null => 'Selecione')
-        );
+        $element->setLabel('Tipo');
         $this->setRequired($element);
         $this->addElement($element);
         return $this;
@@ -176,9 +163,7 @@ class Admin_Form_Veiculo extends App_Form
      */
     public function addSituacao()
     {
-        $dql = Admin_Model_Vehicle::getStatusDql();
         $element = new MyZend_Form_Element_DoctrineSelect('situacao_id');
-        $element->addMultiOptionFromDql($dql, 'id', 'name');
         $element->setRequired(true)->setLabel('Situação');
         $this->addElement($element);
         return $this;

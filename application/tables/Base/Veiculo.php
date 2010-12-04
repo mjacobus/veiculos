@@ -45,7 +45,6 @@ abstract class Base_Veiculo extends Doctrine_Record
              ));
         $this->hasColumn('modelo', 'string', 255, array(
              'type' => 'string',
-             'unique' => true,
              'notnull' => true,
              'length' => '255',
              ));

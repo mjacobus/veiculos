@@ -8,8 +8,17 @@
         <?= $this->headLink() ?>
         <?= $this->headStyle() ?>
         <?= $this->headScript() ?>
+        <link rel="SHORTCUT ICON" href="/public/images/icon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl();?>/css/style.css" media="all"/>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="<?= $this->baseUrl();?>/js/forms.js" charset="UTF-8"></script>
     </head>
     <body>
+
+        <div style="display:none;" class="all-messages"></div>
+        <div style="display:none;" class="info-messages"></div>
+        <div style="display:none;" class="info-messages"></div>
+        <div style="display:none;" class="error-messages"></div>
     
     <?php echo $this->layout()->content; ?>
 
