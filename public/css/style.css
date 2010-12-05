@@ -1,0 +1,364 @@
+A {
+    color: blue;
+}
+
+A:link {
+    text-decoration: none;
+}
+
+A:hover {
+    text-decoration: underline;
+}
+
+A:visited {
+    text-decoration: none;
+}
+
+BODY {
+    background-color: #d0f0e0;
+    padding: 5px;
+    margin: 0;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    color: #0d2474;
+}
+
+DD {
+    width: 500px;
+    text-align: left;
+    padding: 2px 0 2px 0
+}
+
+DT {
+    text-align:right;
+    float:left;
+    padding: 2px 0 2px 0;
+    margin-right: 5px;
+    width: 150px;
+}
+
+DT>LABEL:after {
+    content: ":";
+}
+
+H1 {
+    padding: 10px 0 0 0 ;
+}
+
+TD {
+    background: white;
+    height: 30px;
+    padding: 5px;
+}
+
+SPAN.replace {
+}
+
+SPAN.replace.new {
+    background: url("../img/crud_add.png") no-repeat top right;
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+}
+
+TABLE {
+    width: 700px;
+}
+
+TD.action {
+    text-align: center;
+}
+
+TH {
+    background: #bbbbcc;
+    height: 15px;
+    padding: 5px;
+}
+
+TH.action , TD.action {
+    width: 10px; text-align:center
+}
+
+TR.odd td {
+    background: #eeeeee;
+}
+
+.topMessages {
+    background-color: #eeeeee;
+    padding: 1px 15px 1px 15px;
+    margin: 0 0 15px 0;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+
+.action {
+
+}
+
+.action A
+{
+    width: 40px;
+    height:40px;
+    display:block;
+    float:left;
+    margin-left:10px;
+}
+
+.action .action-edit {
+    background:url("../img/crud_edit_16x16.png") top left no-repeat;
+}
+
+.action .action-update {
+    background:url("../img/crud_edit_16x16.png") top left no-repeat;
+}
+
+.action .action-delete {
+    background:url("../img/crud_del_16x16.png") top left no-repeat;
+}
+
+.action .action-insert {
+    background:url("../img/crud_add_32x32.png") top left no-repeat;
+}
+
+.block {
+    margin-left: 245px;
+    padding:0px;
+}
+
+.grid-actions-bar{ margin-top: 33px;}
+.grid-table {
+    width:100%;
+    border-spacing:0;
+    border-collapse:collapse;
+}
+
+.grid-table td {
+    border:solid 1px #888888;
+    padding-left:3px;
+    padding-right:3px;
+    padding-top:0;
+    padding-bottom:0;
+}
+
+.grid-table th {
+    border:solid 1px #888888;
+    padding:3px;
+}
+
+.grid-table tr {
+    margin:0;
+    padding:0;
+    margin:0;
+    border-spacing:0;
+    outline-width:0;
+}
+
+/**
+ * Usado para o TD que tem um check-box para selecionar o registro da grid
+*/
+.grid-row-selector {
+    text-align:center;
+    width:20px;
+}
+
+.search-input {
+    border:solid #a0a0a0 1px ;
+    background-image:url(icon/search-icon.png);
+    background-repeat:no-repeat;
+    background-position:right;
+    float:right;
+    margin-right:10px;
+}
+
+.tabs A {
+    background-color:#008844;
+    vertical-align:baseline;
+    padding:2px;
+    padding-top:17px;
+    height:17px;
+}
+.tabs-background {
+    width:100%;
+}
+
+.tabs-conteiner {
+    background-color:#e6e9ef;
+    padding:5px;
+}
+
+.tabs-header {
+    background-color:#008844;
+    vertical-align:baseline;
+    padding:2px;
+    padding-top:17px;
+    height:17px;
+}
+
+.tabs-off {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    background-color:#00592c;
+    color:#E6EFEA;
+    color:#ffffff;
+    font-family:arial,helvetica,sans-serif;
+    font-size:0.8em;
+    font-weight:bold;
+    font-style:normal;
+    border:none;
+    margin-left:6px;
+    padding-bottom:3px;
+    padding-top:7px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.tabs-on {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    margin-left:6px;
+    font-family:arial,helvetica,sans-serif;
+    font-size:0.8em;
+    font-weight:bold;
+    font-style:normal;
+    color:#333333;
+    border:none;
+    background-color:#e6e9ef;
+    padding-bottom:3px;
+    padding-top:7px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+a.tabs-on {
+    text-decoration:none;
+}
+
+a.tabs-off {
+    text-decoration:none;
+}
+
+.vertical-menu a {
+    display:inline-block;
+    background-color:#dddddd;
+    width:170px;
+    text-decoration:none;
+}
+
+.vertical-menu a.selected {
+    width:183px;
+    background-color:#cccccc;
+    background-image:url(icon/vertical-selected-item.png);
+    background-repeat:no-repeat;
+    background-position:right;
+}
+
+.form input[type=text], .form TEXTAREA {
+    margin: 0;
+    width: 360px;
+}
+
+#footer {
+    border-top:solid 1px #aaaaaa;
+    text-align:center;
+    font-size:0.7em;
+    color:#222222;
+    padding-top:3px;
+    padding-bottom:30px;
+}
+
+#content {
+    padding:10px 10px 30px 10px;
+}
+
+#admin_menu {
+    background-color:#eeeeee;
+    height: 2em;
+    width: 100%;
+    padding-top:0.6em;
+}
+
+#admin_menu ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+
+#admin_menu  li {
+    float: left;
+    margin-right: 0.2em;
+}
+
+#admin_menu li a {
+    height: 2em;
+    width: 9em;
+    line-height: 2em;
+    float: left;
+    display: block;
+    background-color:#ccccdd;
+    color: #0d2474;
+    text-decoration: none;
+    text-align: center;
+}
+
+#admin_menu li a:hover {
+    background-color: #bbbbcc;
+}
+
+#admin_menu .active {
+    background-color:#ddddee;
+}
+
+#b4main {
+    margin: 0 10px 10px 10px;
+    background-color:#ccccdd;
+    width: auto;
+    height: auto;
+    padding: 10px;
+}
+
+#dialog {
+    display:none;
+    padding:5px;
+    background-color:#ffee88;
+}
+
+#main {
+    text-align: left;
+    margin: 5px;
+    background-color:white;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    height:375px;
+    overflow:auto;
+}
+
+.navigation{ margin: 0px; padding:0px 20px;}
+.navigation .active{ background-color: #cccccc!important;}
+.navigation li{  list-style: none; background: #009900; padding: 5px 10px; }
+.navigation li a{ color: #ffffff;}
+.navigation li{ float: left; width: 100px;}
+.navigation li ul{ position: absolute; top: 140px; left: 0px; width: 200px; background: lime; list-style: none; margin-left: 25px; padding: 0px 10px;}
+.navigation li ul li{ float: none; width: 100%; padding: 5px 0px; background: none;}
+.navigation li ul{ display: none;}
+.navigation .active ul{ display:block;}
+
+/* form errors */
+
+dd ul.error-list {
+    float: right;
+    font-size: 16px;
+    margin: 0;
+    width: 360px;
+}
+
+dd ul.error-list li {
+    color:red;
+}
