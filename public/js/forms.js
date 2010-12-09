@@ -9,13 +9,17 @@ $(document).ready(function(){
             async: false,
             url: form.attr('action') !== '' ? form.attr('action') : window.location.href,
             success: function(json) {
-                showMessagesAllMessages(json.messages);
+                if (typeof json == 'string')
+                    json = eval('(' + json + ')');
+                showCrudMessages(json.messages);
                 showFormErrors(json.formErrors, form);
                 if (json.success && (json.goTo != undefined && json.goTo != '')) {
                     window.location.href = json.goTo;
                 }
             },
-            error: handleError,
+            error: function() {
+                alert('oops');
+            },
             complete: unload
         });
     });
@@ -28,21 +32,32 @@ function unload(){
 //console.log('ready');
 }
 
-function showMessagesAllMessages(messages)
+function showCrudMessages(messages)
 {
+    if ($('#topMessages div.messages').length == 0) {
+        $('#topMessages').prepend('<div class="messages"></div>');
+    }
+    var hasMessage = false;
     for (var type in messages) {
-        showMessages(messages[type], $('div.' + type + '-messages'));
+        if (messages[type].length > 0) {
+            hasMessage = true;
+        }
+        showMessages(messages[type], $('#topMessages div.messages'), type);
+    }
+    if (!hasMessage) {
+        $('#topMessages, #topMessages div.messages').hide();
+    } else {
+        $('#topMessages, #topMessages div.messages').show();
     }
 }
 
-function showMessages(messages,container)
-{
+function showMessages(messages,container, type){
     if (container.length > 0) {
         var list = $('<ul class="messages"></ul>');
         var hasMessage = false;
         for(var i in messages) {
             hasMessage = true;
-            list.append('<li>' + messages[i] + '</li>');
+            list.append('<li class="'+ type +'">' + messages[i] + '</li>');
         }
         if (hasMessage) {
             container.html(list).show();
@@ -52,8 +67,7 @@ function showMessages(messages,container)
     }
 }
 
-function alertMessages(messages)
-{
+function alertMessages(messages) {
     if(messages.length > 0) {
         var text = '';
         for(var i in messages) {
@@ -63,24 +77,18 @@ function alertMessages(messages)
     }
 }
 
-function showFormErrors(formErrors, form)
-{
+function showFormErrors(formErrors, form){
     if (form !== undefined) {
         form.find('ul.error-list').remove();
+        form.find('input, select, textarea').removeClass('error');
     }
     var list;
     for (var element in formErrors) {
-        hasError = true;
-        $('#' + element).parent('dd').append('<ul id="error-' + element + '" class="error-list">');
+        $('#' + element).addClass('error').parent('dd').append('<ul id="error-' + element + '" class="error-list">');
         list = $('#error-' + element);
 
         for (var error in formErrors[element]) {
             list.append('<li>' + formErrors[element][error] + '</li>');
         }
     }
-}
-
-function handleError()
-{
-    
 }

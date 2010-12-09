@@ -5,17 +5,6 @@ class Admin_Model_Veiculo extends App_Model_Crud
 
     protected $_tableName = 'Veiculo';
 
-    /**
-     * Mapping of unique keys
-     * @var array
-     */
-    protected $_ukMapping = array(
-        'placa' => array(
-            'field' => 'placa',
-            'label' => 'placa',
-            'message' => 'Um registro já existe com "{label}" igual a "{value}" '
-        )
-    );
     
     public function init()
     {

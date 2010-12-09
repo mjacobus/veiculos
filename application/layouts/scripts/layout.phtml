@@ -5,17 +5,19 @@
         <?= $this->headMeta()
             ->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
             ->appendHttpEquiv('Content-Language', 'pt_BR') ?>
-        <?= $this->headLink() ?>
+        <?= $this->headLink()
+                ->appendStylesheet($this->baseUrl('/css/smoothness/jquery-ui-1.7.3.custom.css'))
+                ->appendStylesheet($this->baseUrl('/css/style.css'))
+                    ?>
         <?= $this->headStyle() ?>
         <?= $this->headScript() ?>
+        <?= $this->jQuery()->uiEnable()->setUiVersion('1.7.2'); ?>
         <link rel="SHORTCUT ICON" href="/public/images/icon.ico" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl();?>/css/style.css" media="all"/>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js" charset="UTF-8"></script>
         <script type="text/javascript" src="<?= $this->baseUrl();?>/js/forms.js" charset="UTF-8"></script>
     </head>
     <body>
-
-        <div style="display:none;" class="all-messages"></div>
+        
+        <div id="topMessages" style="display:none;" class="all-messages"></div>
         <div style="display:none;" class="info-messages"></div>
         <div style="display:none;" class="info-messages"></div>
         <div style="display:none;" class="error-messages"></div>
