@@ -64,18 +64,18 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     /**
      * Autoloader for Admin module
      */
-    public function _initAdminModuleAutoloader()
+    public function _initAutoloader()
     {
-        //TODO: take this config to application.ini
-        $resourceLoader = new Zend_Loader_Autoloader_Resource(
-                array(
-                    'basePath' => APPLICATION_PATH . '/modules/admin',
-                    'namespace' => 'Admin',
-                )
-        );
-        $resourceLoader->addResourceType('model', 'models/', 'Model');
-        $resourceLoader->addResourceType('form', 'forms/', 'Form');
-        return $resourceLoader;
+        $this->getApplication()->getAutoloader()
+            ->pushAutoloader(new App_Loader_ModuleResources());
+    }
+
+    public function __initView()
+    {
+        $viewRenderer = new Zend_Controller_Action_Helper_ViewRenderer();
+        $viewRenderer->setView(new App_View());
+            Zend_Controller_Action_HelperBroker::addHelper($viewRenderer);
+
     }
 
 }
