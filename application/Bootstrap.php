@@ -70,7 +70,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             ->pushAutoloader(new App_Loader_ModuleResources());
     }
 
-    public function __initView()
+    public function _initView()
     {
         $viewRenderer = new Zend_Controller_Action_Helper_ViewRenderer();
         $viewRenderer->setView(new App_View());
