@@ -23,6 +23,28 @@ $(document).ready(function(){
             complete: unload
         });
     });
+
+
+    $('a.ajax').live('click',function(){
+        load();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            success: function(html){
+                $('#dialog').html(html).dialog({
+                    modal:true,
+                    width: 600
+                });;
+
+            }, error: function(){
+
+            },
+            complete: unload
+        });
+        return false;
+    });
+
+
 });
 
 function load(){
