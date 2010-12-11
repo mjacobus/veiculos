@@ -11,7 +11,7 @@ $(document).ready(function(){
             success: function(json) {
                 if (typeof json == 'string')
                     json = eval('(' + json + ')');
-                showCrudMessages(json.messages);
+                showCrudMessages(json.messages,form);
                 showFormErrors(json.formErrors, form);
                 if (json.success && (json.goTo != undefined && json.goTo != '')) {
                     window.location.href = json.goTo;
@@ -57,22 +57,24 @@ function unload(){
 //console.log('ready');
 }
 
-function showCrudMessages(messages)
+function showCrudMessages(messages,form)
 {
-    if ($('#topMessages div.messages').length == 0) {
-        $('#topMessages').prepend('<div class="messages"></div>');
+    var container = form.find('div.messages');
+    if (container.length == 0) {
+        form.prepend('<div class="messages"></div>');
+        container = form.find('div.messages');
     }
     var hasMessage = false;
     for (var type in messages) {
         if (messages[type].length > 0) {
             hasMessage = true;
         }
-        showMessages(messages[type], $('#topMessages div.messages'), type);
+        showMessages(messages[type], container, type);
     }
     if (!hasMessage) {
-        $('#topMessages, #topMessages div.messages').hide();
+        container.hide();
     } else {
-        $('#topMessages, #topMessages div.messages').show();
+        container.show();
     }
 }
 
@@ -109,7 +111,7 @@ function showFormErrors(formErrors, form){
     }
     var list;
     for (var element in formErrors) {
-        $('#' + element).addClass('error').parent('dd').append('<ul id="error-' + element + '" class="error-list">');
+        $('#' + element).addClass('error').parent('div').append('<ul id="error-' + element + '" class="error-list">');
         list = $('#error-' + element);
 
         for (var error in formErrors[element]) {
