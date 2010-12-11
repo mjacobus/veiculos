@@ -4,13 +4,13 @@
         <th>Modelo</th>
         <th>Ano</th>
         <th>Placa</th>
-        <th><a href="<?= $this->c() ?>" class="ajax create"><img src="<?= $this->di() ?>" alt="adicionar" /></a></th>
+        <th><a href="<?= $this->c() ?>" class="ajax create"><img src="<?= $this->ci() ?>" alt="adicionar" /></a></th>
     </tr>
 
 
 <?php foreach($this->records as $i => $record) : ?>
     <?php $id = $record->id ?>
-    <tr class="r<?= ($i%2) ?>">
+    <tr class="<?= ($i%2) ? 'alt' : '' ?>">
         <td><?= $this->cc($id) ?></td>
         <td><?= $record->modelo ?></td>
         <td><?= $record->ano ?></td>
@@ -20,9 +20,9 @@
 
         <td>
             <?php $url = $this->crudUrl ?>
-            <a href="<?= $this->d($id) ?>" class="ajax delete"><img src="<?= $this->di() ?>" alt="excluir" /></a>
-            <a href="<?= $this->u($id) ?>" class="ajax update"><img src="<?= $this->ui() ?>" alt="editar" /></a>
-            <a href="<?= $this->r($id) ?>" class="ajax read"><img src="<?= $this->ri() ?>" alt="visualizar" /></a>
+            <a href="<?= $this->r($id) ?>" title="visualizar" class="ajax read"><img src="<?= $this->ri() ?>" title="visualizar" alt="visualizar" /></a>
+            <a href="<?= $this->u($id) ?>" title="editar" class="ajax update"><img src="<?= $this->ui() ?>" title="editar" alt="editar" /></a>
+            <a href="<?= $this->d($id) ?>" title="excluir" class="ajax delete"><img src="<?= $this->di() ?>" title="visualizar" alt="excluir" /></a>
         </td>
     </tr>
 <?php endforeach ?>

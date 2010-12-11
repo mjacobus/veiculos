@@ -73,6 +73,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     public function _initView()
     {
         $view = new App_View();
+        $view->setIcons(array(
+            'create' => '/img/create_24x24.png',
+            'read' => '/img/read_24x24.png',
+            'update' => '/img/update_24x24.png',
+            'delete' => '/img/delete_24x24.png',
+        ));
         /*TODO: bring to the application.ini*/
         $view->addHelperPath("ZendX/JQuery/View/Helper", "ZendX_JQuery_View_Helper");
         $viewRenderer = new Zend_Controller_Action_Helper_ViewRenderer();
