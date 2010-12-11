@@ -31,10 +31,13 @@ $(document).ready(function(){
         $.ajax({
             url: url,
             success: function(html){
+
+                html = $('<div>' + html + '</div>').find('form').attr('action',url);
+
                 $('#dialog').html(html).dialog({
                     modal:true,
                     width: 600
-                });;
+                }).dialog('open');
 
             }, error: function(){
 

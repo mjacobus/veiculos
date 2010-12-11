@@ -1,22 +1,21 @@
-A {
-    color: blue;
+a {
+    color: black;
     border: 0;
 }
 
-A:link {
+a:link {
     text-decoration: none;
 }
 
-A:hover {
+a:hover {
     text-decoration: underline;
 }
 
-A:visited {
+a:visited {
     text-decoration: none;
 }
 
-BODY {
-    background-color: #d0f0e0;
+body {
     padding: 5px;
     margin: 0;
     font-family: arial, sans-serif;
@@ -24,58 +23,14 @@ BODY {
     color: #0d2474;
 }
 
-DD {
-    width: 500px;
-    text-align: left;
-    padding: 2px 0 2px 0
+#content {
+    width: 800px;
+    margin: 0 auto;
 }
 
-DT {
-    text-align:right;
-    float:left;
-    padding: 2px 0 2px 0;
-    margin-right: 5px;
-    width: 150px;
+tr.r0 {
+    background: #eee;
 }
-
-H1 {
-    padding: 10px 0 0 0 ;
-}
-
-TD {
-    background: white;
-    height: 30px;
-    padding: 5px;
-}
-
-SPAN.replace {
-}
-
-SPAN.replace.new {
-    background: url("../img/crud_add.png") no-repeat top right;
-    width: 32px;
-    height: 32px;
-    text-indent: -9999px;
-}
-
-TABLE {
-    width: 700px;
-}
-
-TD.action {
-    text-align: center;
-}
-
-TH {
-    background: #bbbbcc;
-    height: 15px;
-    padding: 5px;
-}
-
-TH.action , TD.action {
-    width: 10px; text-align:center
-}
-
-TR.odd td {
-    background: #eeeeee;
+tr.r1 {
+    background: #bbb;
 }

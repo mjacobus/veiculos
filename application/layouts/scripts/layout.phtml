@@ -6,12 +6,12 @@
             ->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
             ->appendHttpEquiv('Content-Language', 'pt_BR') ?>
         <?= $this->headLink()
-                ->appendStylesheet($this->baseUrl('/css/smoothness/jquery-ui-1.7.3.custom.css'))
+                ->appendStylesheet($this->baseUrl('/css/blitzer/jquery-ui-1.8.7.custom.css'))
                 ->appendStylesheet($this->baseUrl('/css/style.css'))
                     ?>
         <?= $this->headStyle() ?>
         <?= $this->headScript() ?>
-        <?= $this->jQuery()->uiEnable()->setUiVersion('1.7.2'); ?>
+        <?= $this->jQuery()->setVersion('1.4')->uiEnable()->setUiVersion('1.7.2'); ?>
         <link rel="SHORTCUT ICON" href="/public/images/icon.ico" type="image/x-icon" />
         <script type="text/javascript" src="<?= $this->baseUrl();?>/js/forms.js" charset="UTF-8"></script>
     </head>
@@ -25,7 +25,9 @@
 
         <div id="dialog">
         </div>
-    <?php echo $this->layout()->content; ?>
+        <div id="content">
+            <?php echo $this->layout()->content; ?>
+        </div>
 
     </body>
 </html>

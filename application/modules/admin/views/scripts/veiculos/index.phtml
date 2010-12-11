@@ -8,9 +8,9 @@
     </tr>
 
 
-<?php foreach($this->records as $record) : ?>
+<?php foreach($this->records as $i => $record) : ?>
     <?php $id = $record->id ?>
-    <tr>
+    <tr class="r<?= ($i%2) ?>">
         <td><?= $this->cc($id) ?></td>
         <td><?= $record->modelo ?></td>
         <td><?= $record->ano ?></td>
