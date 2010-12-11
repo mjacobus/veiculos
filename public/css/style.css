@@ -3,6 +3,9 @@ html,body {
 	margin: 0;
 	font-family: Verdana, sans-serif;
 }
+table {
+    width:100%;
+}
 
 a, img {
     border:none;
@@ -489,4 +492,13 @@ th a {
 
 .green {
 	background-color: green !important;
+}
+
+tr .id, tr .actions {
+    width: 15px;
+    text-align: center;
+}
+
+tr .actions {
+    width: 60px;
 }
