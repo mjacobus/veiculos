@@ -136,12 +136,12 @@ function alertMessages(messages) {
 
 function showFormErrors(formErrors, form){
     if (form !== undefined) {
-        form.find('ul.error-list').remove();
+        form.find('ul.errors').remove();
         form.find('input, select, textarea').removeClass('error');
     }
     var list;
     for (var element in formErrors) {
-        $('#' + element).addClass('error').parent('div').append('<ul id="error-' + element + '" class="error-list">');
+        $('#' + element).addClass('error').parent('div').append('<ul id="error-' + element + '" class="errors">');
         list = $('#error-' + element);
 
         for (var error in formErrors[element]) {
