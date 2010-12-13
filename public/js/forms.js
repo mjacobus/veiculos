@@ -1,4 +1,15 @@
 $(document).ready(function(){
+    $('#menuTop').tabs({
+        select: function(event, ui) {
+            var url = $.data(ui.tab, 'load.tabs');
+            if( url ) {
+                location.href = url;
+                return false;
+            }
+            return true;
+        }
+    }).find('.ui-state-active').removeClass('ui-state-active ui-tabs-selected');
+
     $('form.crud').live('submit',function(e){
         e.preventDefault();
         load();
@@ -39,7 +50,8 @@ $(document).ready(function(){
                     width: 600
                 }).dialog('open');
 
-            }, error: function(){
+            },
+            error: function(){
 
             },
             complete: unload

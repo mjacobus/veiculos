@@ -16,18 +16,14 @@
         <script type="text/javascript" src="<?= $this->baseUrl();?>/js/forms.js" charset="UTF-8"></script>
     </head>
     <body>
-        
-        <div id="topMessages" style="display:none;" class="all-messages"></div>
-        <div style="display:none;" class="info-messages"></div>
-        <div style="display:none;" class="info-messages"></div>
-        <div style="display:none;" class="error-messages"></div>
-
-
-        <div id="dialog">
-        </div>
         <div id="content">
-            <?php echo $this->layout()->content; ?>
+            <div id="menuTop">
+                <?= $this->navigation(App_Navigation_Menu::get('Admin_Menu_Top'))->menu() ?>
+
+                <div id="view"><?php echo $this->layout()->content; ?></div>
+            </div>
         </div>
+        <div id="dialog"></div>
 
     </body>
 </html>
