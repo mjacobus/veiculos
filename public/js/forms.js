@@ -71,10 +71,10 @@ function unload(){
 
 function showCrudMessages(messages,form)
 {
-    var container = form.find('div.messages');
+    var container = form.find('div.ui-widget');
     if (container.length == 0) {
-        form.prepend('<div class="messages"></div>');
-        container = form.find('div.messages');
+        form.prepend('<div class="ui-widget"></div>');
+        container = form.find('div.ui-widget');
     }
     var hasMessage = false;
     for (var type in messages) {
@@ -89,14 +89,32 @@ function showCrudMessages(messages,form)
         container.show();
     }
 }
+/*
+<div class="ui-widget">
+    <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em;"/>
+            <strong>Alert:</strong>Sample ui-state-error style.</p>
+    </div>
+</div>
+*/
 
 function showMessages(messages,container, type){
+
+    var messageClass = 'ui-state-error';
+    var iconClass = 'ui-icon-alert';
+    if (type == 'info') {
+        messageClass = 'ui-state-highlight';
+        iconClass = 'ui-icon-info';
+    }
+
     if (container.length > 0) {
-        var list = $('<ul class="messages"></ul>');
+        var list = $('<div class="' + messageClass + ' ui-corner-all"></div>');
         var hasMessage = false;
         for(var i in messages) {
             hasMessage = true;
-            list.append('<li class="'+ type +'">' + messages[i] + '</li>');
+            list.append('<span class="ui-icon ' + iconClass + '" style="float: left; margin-right: 0.3em;"/>');
+            list.append('<p class="'+ type +'">' + messages[i] + '</p>');
         }
         if (hasMessage) {
             container.html(list).show();
