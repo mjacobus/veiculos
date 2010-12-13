@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+    //menu
     $('#menuTop').tabs({
         select: function(event, ui) {
             var url = $.data(ui.tab, 'load.tabs');
@@ -9,7 +11,9 @@ $(document).ready(function(){
             return true;
         }
     }).find('.ui-state-active').removeClass('ui-state-active ui-tabs-selected');
+    $('#menuTop').find('li.active').addClass('ui-state-active ui-tabs-selected');
 
+    // ajax submit for crud forms
     $('form.crud').live('submit',function(e){
         e.preventDefault();
         load();
@@ -36,7 +40,8 @@ $(document).ready(function(){
     });
 
 
-    $('a.ajax').live('click',function(){
+    // loads ajax forms
+    $('.actions a.ajax').live('click',function(){
         load();
         var url = $(this).attr('href');
         $.ajax({
@@ -51,11 +56,15 @@ $(document).ready(function(){
                 }).dialog('open');
 
             },
-            error: function(){
-
-            },
+            error: ajaxError,
             complete: unload
         });
+        return false;
+    });
+
+    // ajax links
+    $('a.ajax-load').click(function(){
+        $('#view').load($(this).attr('href'));
         return false;
     });
 
@@ -89,15 +98,6 @@ function showCrudMessages(messages,form)
         container.show();
     }
 }
-/*
-<div class="ui-widget">
-    <div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
-        <p>
-            <span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em;"/>
-            <strong>Alert:</strong>Sample ui-state-error style.</p>
-    </div>
-</div>
-*/
 
 function showMessages(messages,container, type){
 
@@ -109,7 +109,7 @@ function showMessages(messages,container, type){
     }
 
     if (container.length > 0) {
-        var list = $('<div class="' + messageClass + ' ui-corner-all"></div>');
+        var list = $('<div class="' + messageClass + ' ui-corner-all" style="padding: 0pt 0.7em;"></div>');
         var hasMessage = false;
         for(var i in messages) {
             hasMessage = true;
@@ -148,4 +148,9 @@ function showFormErrors(formErrors, form){
             list.append('<li>' + formErrors[element][error] + '</li>');
         }
     }
+}
+
+function ajaxError()
+{
+    alert('Oops! Um erro ocorreu.');
 }
