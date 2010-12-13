@@ -1,9 +1,15 @@
 <table>
     <tr>
         <th class="id all"><?= $this->cc('all') ?></th>
+        <th>Marca</th>
+        <th>Tipo</th>
         <th>Modelo</th>
-        <th>Ano</th>
+        <th>Cor</th>
+        <th>Ano/Mod</th>
+        <th>Comb.</th>
         <th>Placa</th>
+        <th>Valor</th>
+        <th>Situação</th>
         <th class="actions"><a href="<?= $this->c() ?>" class="ajax create"><img src="<?= $this->ci() ?>" alt="adicionar" /></a></th>
     </tr>
 
@@ -12,9 +18,15 @@
     <?php $id = $record->id ?>
     <tr class="<?= ($i%2) ? 'alt' : '' ?>">
         <td class="id"><?= $this->cc($id) ?></td>
+        <td><?= $record->Marca->nome ?></td>
+        <td><?= $record->Tipo->nome ?></td>
         <td><?= $record->modelo ?></td>
-        <td><?= $record->ano ?></td>
+        <td><?= $record->cor ?></td>
+        <td><?= $record->ano ?>/<?= $record->ano_modelo ?></td>
+        <td><?= $record->Combustivel->abreviacao ?></td>
         <td><?= $record->placa ?></td>
+        <td><?= $record->valor ?></td>
+        <td><?= $record->Situacao->nome ?></td>
 
 
 
