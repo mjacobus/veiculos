@@ -12,7 +12,7 @@ class Admin_Menu_Top extends Zend_Navigation
     {
         $options = array(
             new App_Navigation_Page_Mvc(array(
-                'label' => 'Veiculos',
+                'label' => 'Veiculo',
                 'module' => 'admin',
                 'controller' => 'veiculos',
                 'pages' => array(
@@ -37,30 +37,30 @@ class Admin_Menu_Top extends Zend_Navigation
                 )
             )),
             new App_Navigation_Page_Mvc(array(
-                'label' => 'Imagens',
+                'label' => 'Imagem',
                 'module' => 'admin',
-                'controller' => 'imagens',
+                'controller' => 'imagem',
                 'pages' => array(
                 )
             )),
             new App_Navigation_Page_Mvc(array(
-                'label' => 'Marcas',
+                'label' => 'Marca',
                 'module' => 'admin',
-                'controller' => 'marcas',
+                'controller' => 'marca',
                 'pages' => array(
                 )
             )),
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Combustível',
                 'module' => 'admin',
-                'controller' => 'marcas',
+                'controller' => 'combustivel',
                 'pages' => array(
                 )
             )),
             new App_Navigation_Page_Mvc(array(
-                'label' => 'Usuários',
+                'label' => 'Usuário',
                 'module' => 'admin',
-                'controller' => 'usuarios',
+                'controller' => 'usuario',
                 'pages' => array(
                 )
             )),
