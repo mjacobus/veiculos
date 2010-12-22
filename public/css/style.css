@@ -537,3 +537,30 @@ tr .actions {
 .pagination a {
     text-decoration: none;
 }
+
+
+div.form-elements {
+    float: left;
+    width: 580px;
+}
+
+div.label-and-element div {
+    float:left;
+    width: 65px;
+}
+
+div.label-and-element label {
+    margin-top: 7px;
+}
+
+div.label-and-element div.element {
+    width: 470px;
+}
+
+#submit-label label {
+    display:none;
+}
+
+#submit {
+    float:right;
+}
