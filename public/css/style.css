@@ -516,3 +516,24 @@ tr .actions {
 
 
 /* navigation */
+
+
+/* pagination */
+
+.pagination {
+    float: right;
+    display: block;
+}
+
+.pagination li {
+    list-style: none;
+    float:left;
+    width: 15px;
+    border: 1px solid #eee;
+    margin: 2px;
+    text-align: center;
+}
+
+.pagination a {
+    text-decoration: none;
+}
