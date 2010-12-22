@@ -14,7 +14,7 @@ class Admin_Menu_Top extends Zend_Navigation
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Veiculo',
                 'module' => 'admin',
-                'controller' => 'veiculos',
+                'controller' => 'veiculo',
                 'pages' => array(
                     /*
                     new Zend_Navigation_Page_Mvc(array(

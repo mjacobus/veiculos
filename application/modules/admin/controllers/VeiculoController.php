@@ -1,6 +1,6 @@
 <?php
 
-class Admin_VeiculosController extends App_Controller_Crud_Abstract
+class Admin_VeiculoController extends App_Controller_Crud_Abstract
 {
 
     /**
