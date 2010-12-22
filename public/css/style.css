@@ -564,3 +564,16 @@ div.label-and-element div.element {
 #submit {
     float:right;
 }
+
+div#search {
+    width: 300px;
+    float:right;
+    margin-top: -48px;
+    position:absolute;
+    margin-left: 560px;
+}
+
+div#search input {
+    margin: 0px;
+    float:left;
+}
