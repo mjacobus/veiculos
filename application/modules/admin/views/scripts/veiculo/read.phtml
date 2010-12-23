@@ -1,1 +1,2 @@
-<br /><br /><center>View script for controller <b>Veiculos</b> and script/action name <b>read</b></center>
+<? $id = $this->param('id') ?>
+<?= $this->navigation(new Admin_Menu_Veiculo($id))->menu()?>

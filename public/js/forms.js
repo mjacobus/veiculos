@@ -1,18 +1,5 @@
 $(document).ready(function(){
 
-    //menu
-    $('#menuTop').tabs({
-        select: function(event, ui) {
-            var url = $.data(ui.tab, 'load.tabs');
-            if( url ) {
-                location.href = url;
-                return false;
-            }
-            return true;
-        }
-    }).find('.ui-state-active').removeClass('ui-state-active ui-tabs-selected');
-    $('#menuTop').find('li.active').addClass('ui-state-active ui-tabs-selected');
-
     // ajax submit for crud forms
     $('form.crud').live('submit',function(e){
         e.preventDefault();
@@ -37,26 +24,19 @@ $(document).ready(function(){
         });
     });
 
-
-    // loads ajax forms
-    $('.actions a.ajax').live('click',function(){
+    //dialog ajax
+    $('#dialog a,.actions a.ajax').live('click',function(){
         load();
-        var url = $(this).attr('href');
-        $.ajax({
-            url: url,
-            success: function(html){
 
-                html = $('<div>' + html + '</div>').find('form').attr('action',url);
+        $('#dialog').load($(this).attr('href'), function(html, status){
+            unload();
+        })
+        .dialog({
+            modal:true,
+            width: 600
+        })
+        .dialog('open');
 
-                $('#dialog').html(html).dialog({
-                    modal:true,
-                    width: 600
-                }).dialog('open');
-
-            },
-            error: ajaxError,
-            complete: unload
-        });
         return false;
     });
 
@@ -83,6 +63,21 @@ $(document).ready(function(){
         });
     });
 
+    $('#menuTop a').live('click',function(){
+        load();
+        var a = $(this);
+        $('#view').load(a.attr('href'), function(response, status){
+            unload();
+            if (status !== "error") {
+                $('#menuTop li').removeClass('active');
+                a.parent('li').addClass('active');
+            }
+        });
+        return false;
+    });
+
+    
+
 
 });
 
@@ -97,7 +92,7 @@ function showCrudMessages(messages,form)
 {
     var container = form.find('div.ui-widget');
     if (container.length == 0) {
-        form.prepend('<div class="ui-widget"></div>');
+        form.find('div.form-elements').prepend('<div class="ui-widget"></div>');
         container = form.find('div.ui-widget');
     }
     var hasMessage = false;

@@ -12,19 +12,19 @@
         <?= $this->headStyle() ?>
         <?= $this->headScript() ?>
         <?= $this->jQuery()->setVersion('1.4')->uiEnable()->setUiVersion('1.7.2'); ?>
-        <link rel="SHORTCUT ICON" href="/public/images/icon.ico" type="image/x-icon" />
+        <link rel="SHORTCUT ICON" href="/public/img/icon.ico" type="image/x-icon" />
         <script type="text/javascript" src="<?= $this->baseUrl();?>/js/forms.js" charset="UTF-8"></script>
     </head>
     <body>
         <div id="content">
             <div id="menuTop">
                 <?= $this->navigation(App_Navigation_Menu::get('Admin_Menu_Top'))->menu() ?>
-
-                <div id="view"><?php echo $this->layout()->content; ?></div>
             </div>
+
+            <div id="view"><?php echo $this->layout()->content; ?></div>
         </div>
         <div id="dialog"></div>
-        <div id="ajax-loader"><img src="<?= $this->ci() ?>" alt="loading"/></div>
+        <!-- <div id="ajax-loader"><img src="<?= $this->ci() ?>" alt="loading"/></div> -->
 
     </body>
 </html>

@@ -518,7 +518,7 @@ tr .actions {
 
 /* pagination */
 div.pager {
-    float:inherit;
+    float:right;
     height: 35px;
 }
 
@@ -551,7 +551,9 @@ div.counter {
 
 div.form-elements {
     float: left;
-    width: 580px;
+    width: 570px;
+    padding: 5px;
+    margin: 0 auto;
 }
 
 div.label-and-element div {
@@ -576,16 +578,13 @@ div.label-and-element div.element {
 }
 
 div#search {
-    width: 300px;
     float:right;
-    margin-top: -48px;
-    position:absolute;
-    margin-left: 560px;
 }
 
 div#search input {
     margin: 0px;
     float:left;
+    font-size: 11px;
 }
 
 div.order {
@@ -595,4 +594,64 @@ div.order {
 a.order, a.order img {
     float:left;
     display:block;
+}
+
+
+/* navigation */
+a, a:hover, a:active, a:visited {
+    color: gray;
+    text-decoration: none;
+}
+
+#menuTop {
+    background:none;
+    clear:both;
+    float:left;
+
+}
+.navigation {
+    margin-left: -30px;
+}
+.navigation li {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-bottom: 4px solid #DDDDDD;
+    float: left;
+    font-size: 12px;
+    height: 12px;
+    list-style: none outside none;
+    margin-right: 10px;
+    min-width: 60px;
+    padding: 6px;
+    text-align: center;
+}
+
+.navigation li a {
+    color:gray;
+}
+
+.navigation li.active a {
+    color:black;
+}
+
+.navigation li.active {
+    border-color: white;
+    background:white;
+}
+
+body, #menuTop,.ui-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 #556677
+}
+
+div.form-elements {
+    background:white;
+    padding: 5px;
+    
+}
+
+
+#view {
+    background:white;
+    float:left;
+    width: 800px;
+    padding: 5px;
 }

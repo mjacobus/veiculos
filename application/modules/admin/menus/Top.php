@@ -15,68 +15,43 @@ class Admin_Menu_Top extends Zend_Navigation
                 'label' => 'Veiculo',
                 'module' => 'admin',
                 'controller' => 'veiculo',
-                'pages' => array(
-                    /*
-                    new Zend_Navigation_Page_Mvc(array(
-                        'label' => 'Princial',
-                        'module' => 'admin',
-                        'controller' => 'veiculos',
-                        'action' => 'edit',
-                    )),
-                    new App_Navigation_Page_Mvc(array(
-                        'label' => 'Caracteristicas',
-                        'module' => 'admin',
-                        'controller' => 'veiculo-caracteristicas',
-                    )),
-                    new App_Navigation_Page_Mvc(array(
-                        'label' => 'Imagens',
-                        'module' => 'admin',
-                        'controller' => 'veiculo-imagens',
-                    )),
-                     //*/
-                )
+                'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Imagem',
                 'module' => 'admin',
                 'controller' => 'imagem',
-                'pages' => array(
-                )
+                'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Marca',
                 'module' => 'admin',
                 'controller' => 'marca',
-                'pages' => array(
-                )
+                'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Combustível',
                 'module' => 'admin',
                 'controller' => 'combustivel',
-                'pages' => array(
-                )
+                'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Usuário',
                 'module' => 'admin',
                 'controller' => 'usuario',
-                'pages' => array(
-                )
+                'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Perfil',
                 'module' => 'admin',
                 'controller' => 'perfil',
-                'pages' => array(
-                )
+                'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Sair',
                 'module' => 'admin',
                 'controller' => 'sair',
-                'pages' => array(
-                )
+                'pages' => array()
             )),
         );
 
