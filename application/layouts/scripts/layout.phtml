@@ -18,7 +18,7 @@
     <body>
         <div id="content">
             <div id="menuTop">
-                <?= $this->navigation(App_Navigation_Menu::get('Admin_Menu_Top'))->menu() ?>
+                <?= $this->navigation()->menu(App_Navigation_Menu::get('Admin_Menu_Top')) ?>
             </div>
 
             <div id="view"><?php echo $this->layout()->content; ?></div>

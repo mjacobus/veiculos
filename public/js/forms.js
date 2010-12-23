@@ -92,10 +92,10 @@ $(document).ready(function(){
 });
 
 function load(){
-//console.log('loading');
+    $('input[type="submit"]').attr('disabled',true);
 }
 function unload(){
-//console.log('ready');
+$('input[type="submit"]').attr('disabled',false);
 }
 
 function showCrudMessages(messages,form)
