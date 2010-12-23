@@ -5,16 +5,18 @@
 <table>
     <tr>
         <th class="id all"><?= $this->cc('all') ?></th>
-        <th>Marca</th>
-        <th>Tipo</th>
-        <th>Modelo</th>
-        <th>Cor</th>
-        <th>Ano/Mod</th>
-        <th>Comb.</th>
-        <th>Placa</th>
-        <th>Valor</th>
-        <th>Situação</th>
-        <th class="actions"><a href="<?= $this->c() ?>" class="ajax create"><img src="<?= $this->ci() ?>" alt="adicionar" /></a></th>
+        <th><?= $this->order('Marca') ?></th>
+        <th><?= $this->order('Tipo') ?></th>
+        <th><?= $this->order('Modelo') ?></th>
+        <th><?= $this->order('Cor') ?></th>
+        <th><?= $this->order('Ano/Mod.','Ano') ?></th>
+        <th><?= $this->order('Comb.','combustivel') ?></th>
+        <th><?= $this->order('Placa') ?></th>
+        <th><?= $this->order('Valor') ?></th>
+        <th><?= $this->order('Situação','situacao') ?></th>
+        <th class="actions">
+            <a href="<?= $this->c() ?>" class="ajax create"><img src="<?= $this->ci() ?>" alt="adicionar" /></a>
+        </th>
     </tr>
 
 

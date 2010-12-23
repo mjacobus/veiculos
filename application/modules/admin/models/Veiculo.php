@@ -4,6 +4,20 @@ class Admin_Model_Veiculo extends App_Model_Crud
 {
 
     protected $_tableName = 'Veiculo';
+    /**
+     * Mapping for ordering
+     * @var array
+     */
+    protected $_orderMapping = array(
+        'valor' => 'base.valor',
+        'placa' => 'base.placa',
+        'modelo' => 'base.modelo',
+        'ano' => 'base.ano',
+        'situacao' => 'S.nome',
+        'combustivel' => 'C.nome',
+        'marca' => 'M.nome',
+        'tipo' => 'T.nome',
+    );
 
     public function init()
     {
@@ -36,32 +50,23 @@ class Admin_Model_Veiculo extends App_Model_Crud
      */
     public function getQuery(array $params = array())
     {
-        $dql = parent::getQuery()
+        $this->setSearchFields(array(
+            'base.modelo',
+            'base.cor',
+            'base.placa',
+            'C.nome',
+            'S.nome',
+            'T.nome',
+            'M.nome',
+        ));
+        
+        $dql = parent::getQuery($params)
                 ->innerJoin('base.Marca M')
                 ->innerJoin('base.Situacao S')
                 ->innerJoin('base.Tipo T')
                 ->innerJoin('base.Combustivel C');
 
-        if (isset($params['search'])) {
-            $fields = array(
-                'base.modelo',
-                'base.cor',
-                'base.placa',
-                'C.nome',
-                'S.nome',
-                'T.nome',
-                'M.nome',
-            );
 
-            $search = preg_replace('/\s/', ' ', $params['search']);
-            $concat = 'CONCAT(' . implode(',', $fields) . ') like ?';
-            $words = explode(' ', $search);
-
-            foreach ($words as $word) {
-                $dql->addWhere($concat, "%$word%");
-            }
-        }
-        
         return $dql;
     }
 

@@ -39,7 +39,7 @@ th a .selected {
 }
 
 .formTitle {
-    background: #EEA966 url(../images/bg_helper_button.jpg) repeat-x;
+    background: #EEA966;
     font-size: 11px !important;
     font-weight: bold;
 }
@@ -70,8 +70,7 @@ form label {
 }
 
 .gridLoading {
-    background: #F2F2F2 url(../images/ajax-loader.gif) no-repeat center
-        center;
+    background: #F2F2F2;
     border: 1px solid #FFA500;
 }
 
@@ -133,12 +132,12 @@ td div input[type='text'],td div input[type='password'],.subtitulo input[type='t
     color: #55391c;
     font-size: 10px;
     margin-left: 5px;
-    background: #FFF url(../images/bg_helper_button.jpg);
+    background: #FFF;
     cursor: pointer;
 }
 
 .querySupport {
-    background: #FFF url(../images/bg_helper.jpg);
+    background: #FFF;
 }
 
 #newGrid {
@@ -240,7 +239,7 @@ td.esquerda {
 
 .hbar {
     text-align: center;
-    background: #FFF url(../images/hbar.jpg);
+    background: #FFF;
     font-variant: small-caps;
 }
 
@@ -358,7 +357,7 @@ td.alt,tr.alt  td {
 }
 
 .subtitulo {
-    background: #FFFFFF url(../images/pageoptions2.jpg) repeat-x bottom;
+    background: #FFFFFF;
 }
 
 .noText span {
@@ -374,7 +373,6 @@ td.alt,tr.alt  td {
     border-top: 1px solid #000;
     width: 919px;
     height: 109px;
-    background-image: url('../images/fundo_topo.jpg');
     border-bottom: 0px;
     clear: both;
 }
@@ -390,7 +388,7 @@ th,.elementLabel {
     border-bottom: 2px solid #ffa500;
     text-align: left;
     padding: 3px 6px;
-    background: #2e3130 url(../images/grid/bg_header.jpg);
+    background: #2e3130;
 }
 
 .input_p {
@@ -519,6 +517,10 @@ tr .actions {
 
 
 /* pagination */
+div.pager {
+    float:inherit;
+    height: 35px;
+}
 
 .pagination {
     float: right;
@@ -530,7 +532,7 @@ tr .actions {
     float:left;
     width: 15px;
     border: 1px solid #eee;
-    margin: 2px;
+    margin: 0 2px;
     text-align: center;
 }
 
@@ -538,6 +540,14 @@ tr .actions {
     text-decoration: none;
 }
 
+
+div.counter {
+    float:right;
+    margin-top: 12px;
+    margin-right: -30px;
+}
+
+/* Forms */
 
 div.form-elements {
     float: left;
@@ -576,4 +586,13 @@ div#search {
 div#search input {
     margin: 0px;
     float:left;
+}
+
+div.order {
+    line-height: 10px;
+}
+
+a.order, a.order img {
+    float:left;
+    display:block;
 }
