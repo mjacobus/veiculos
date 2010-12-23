@@ -32,9 +32,7 @@ $(document).ready(function(){
                     window.location.href = json.goTo;
                 }
             },
-            error: function() {
-                alert('oops');
-            },
+            error: ajaxError,
             complete: unload
         });
     });
@@ -63,9 +61,26 @@ $(document).ready(function(){
     });
 
     // ajax links
-    $('a.ajax-load').click(function(){
+    $('a.ajax-load, a.order').live('click',function(){
         $('#view').load($(this).attr('href'));
         return false;
+    });
+
+    $('#searchForm').live('submit',function(e){
+        e.preventDefault();
+        var form = $(this);
+        load();
+        $.ajax({
+            url: form.attr('action'),
+            data: form.serialize(),
+            cache:false,
+            type: 'POST',
+            success: function(html){
+                $('#view').html(html)
+            },
+            complete: unload,
+            error: ajaxError
+        });
     });
 
 
