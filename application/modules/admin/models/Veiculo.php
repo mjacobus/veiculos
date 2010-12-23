@@ -10,6 +10,7 @@ class Admin_Model_Veiculo extends App_Model_Crud
      */
     protected $_orderMapping = array(
         'valor' => 'base.valor',
+        'cor' => 'base.cor',
         'placa' => 'base.placa',
         'modelo' => 'base.modelo',
         'ano' => 'base.ano',
@@ -44,28 +45,19 @@ class Admin_Model_Veiculo extends App_Model_Crud
     }
 
     /**
-     *
+     * Get the query for searching registers
      * @param array $params
      * @return Doctrine_Query
      */
     public function getQuery(array $params = array())
     {
-        $this->setSearchFields(array(
-            'base.modelo',
-            'base.cor',
-            'base.placa',
-            'C.nome',
-            'S.nome',
-            'T.nome',
-            'M.nome',
-        ));
+        $this->setSearchFields($this->_orderMapping);
         
         $dql = parent::getQuery($params)
                 ->innerJoin('base.Marca M')
                 ->innerJoin('base.Situacao S')
                 ->innerJoin('base.Tipo T')
                 ->innerJoin('base.Combustivel C');
-
 
         return $dql;
     }
