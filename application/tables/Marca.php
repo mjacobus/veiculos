@@ -31,7 +31,7 @@ class Marca extends Base_Marca
         $modified = $this->getModified();
 
         if (array_key_exists('nome', $modified)) {
-            $url = Util_String::toUrl($this->nome);
+            $url = App_String::toUrl($this->nome);
             $this->_set('url', $url);
             foreach ($this->Veiculos as $veiculo) {
                 //loop to force changes

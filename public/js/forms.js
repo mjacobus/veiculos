@@ -16,7 +16,17 @@ $(document).ready(function(){
                 showCrudMessages(json.messages,form);
                 showFormErrors(json.formErrors, form);
                 if (json.success && (json.goTo != undefined && json.goTo != '')) {
-                    window.location.href = json.goTo;
+                    var parts = json.goTo.split('#');
+                    if (parts.length > 1) {
+                        load();
+                        $('#' + parts[1]).load(parts[0], function(){
+                            unload();
+                            showCrudMessages(json.messages,$(this).find('form.crud'));
+                        });
+                    } else {
+                        $('#view').load(json.goTo);
+                        $('#dialog').dialog('close');
+                    }
                 }
             },
             error: ajaxError,
