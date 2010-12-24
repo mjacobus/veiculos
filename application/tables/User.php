@@ -15,7 +15,7 @@ class User extends Base_User
 
     public function setPassword($value)
     {
-        $this->_set('password', Application_Model_Security::stringToPasswordHash($value));
+        $this->_set('password', App_Security::stringToPasswordHash($value));
     }
 
 }
