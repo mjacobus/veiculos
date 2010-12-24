@@ -29,6 +29,8 @@ class Admin_VeiculoCaracteristicaController extends App_Controller_Crud_Abstract
                     'veiculo_id',
                     $record->veiculo_id
                 )));
+        $goTo .= $this->view->getExtraParams();
+
         $form->setGoTo($goTo);
     }
 
