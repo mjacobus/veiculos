@@ -16,6 +16,9 @@ class Admin_Model_VeiculoCaracteristica extends App_Model_Crud
     public function init()
     {
         $this->_form = new Admin_Form_VeiculoCaracteristica($this);
+
+        $this->setCrudMessage(parent::DUPLICATED_COMPOSED_UK,
+            'Este veiculo já possue esta característica.');
     }
 
     /**
@@ -26,10 +29,10 @@ class Admin_Model_VeiculoCaracteristica extends App_Model_Crud
     public function getQuery(array $params = array())
     {
         $this->setSearchFields($this->_orderMapping);
-        
+
         $dql = parent::getQuery($params)
-            ->addWhere('veiculo_id = ?', $params['veiculo_id']);
-        
+                ->addWhere('veiculo_id = ?', $params['veiculo_id']);
+
         return $dql;
     }
 
