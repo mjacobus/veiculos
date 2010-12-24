@@ -5,6 +5,7 @@ class Admin_Form_VeiculoCaracteristica extends App_Form_Abstract
 
     public function init()
     {
+        $this->setAttrib('class', 'crud');
         $this->addDescricao();
         $this->addOrdem();
         $this->addVeiculoId();

@@ -5,6 +5,7 @@ class Admin_Form_Combustivel extends App_Form_Abstract
 
     public function init()
     {
+        $this->setAttrib('class', 'crud');
         $this->addNome();
         $this->addAbreviacao();
         $this->addSubmit();

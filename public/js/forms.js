@@ -29,11 +29,36 @@ $(document).ready(function(){
 
 });
 
-function load(){
+
+
+function load()
+{
     $('input[type="submit"]').attr('disabled',true);
+
+    if ($('#ajax-loader').length == 0) {
+        var div = '<div id="ajax-loader" style="display:none; overflow:hidden;">'
+        + '<img src="'+baseUrl+'/img/ajax-loader.gif" alt="carregando">'
+        + '</div>';
+
+        $('body').prepend(div);
+    }
+
+    $('#ajax-loader').openDOMWindow({
+        modal:1,
+        windowSourceID:"#ajax-loader",
+        windowBGColor:'none',
+        borderSize :0,
+        height:100,
+        width:150,
+        overlayColor:'#000',
+        overlayOpacity:'50'
+    });
 }
-function unload(){
-$('input[type="submit"]').attr('disabled',false);
+
+function unload()
+{
+    $('input[type="submit"]').attr('disabled',false);
+    $('#ajax-loader').closeDOMWindow();
 }
 
 function showCrudMessages(messages,form)
