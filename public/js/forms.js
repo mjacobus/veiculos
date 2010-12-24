@@ -56,6 +56,7 @@ $(document).ready(function(){
         return false;
     });
 
+
     $('#searchForm').live('submit',function(e){
         e.preventDefault();
         var form = $(this);
@@ -64,7 +65,7 @@ $(document).ready(function(){
             url: form.attr('action'),
             data: form.serialize(),
             cache:false,
-            type: 'POST',
+            type: 'GET',
             success: function(html){
                 $('#view').html(html)
             },
