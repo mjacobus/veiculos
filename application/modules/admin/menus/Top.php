@@ -67,7 +67,7 @@ class Admin_Menu_Top extends Zend_Navigation
     {
 
         $request = Zend_Controller_Front::getInstance()->getRequest();
-        if ($request->getActionName() !== 'create' && $request->getActionName() !== 'index') {
+        if ($request->getParam('veiculo_id') || $request->getParam('id')) {
 
             if ($request->getParam('veiculo_id')) {
                 $veiculoId = $request->getParam('veiculo_id');
