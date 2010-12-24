@@ -5,7 +5,7 @@ class Admin_VeiculoController extends App_Controller_Crud_Abstract
 
     /**
      *
-     * @var Application_Admin_Model_Veiculo
+     * @var Admin_Model_Veiculo
      */
     public $model;
 
@@ -31,10 +31,6 @@ class Admin_VeiculoController extends App_Controller_Crud_Abstract
                     'id',
                     $record->id
                 )));
-
-        if ($request->isXmlHttpRequest()) {
-            $goTo .= '#dialog';
-        }
         $form->setGoTo($goTo);
     }
 

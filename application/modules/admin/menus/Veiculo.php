@@ -32,17 +32,17 @@ class Admin_Menu_Veiculo extends Zend_Navigation
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Caracteristicas',
                 'module' => 'admin',
-                'controller' => 'veiculo-caracteristicas',
+                'controller' => 'veiculo-caracteristica',
                 'params' => array(
-                    'veiculo' => $id
+                    'veiculo_id' => $id
                 )
             )),
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Imagens',
                 'module' => 'admin',
-                'controller' => 'veiculo-imagens',
+                'controller' => 'veiculo-imagem',
                 'params' => array(
-                    'veiculo' => $id
+                    'veiculo_id' => $id
                 )
             )),
         );

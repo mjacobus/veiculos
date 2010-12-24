@@ -10,12 +10,13 @@ class Admin_Menu_Top extends Zend_Navigation
 
     public function __construct()
     {
+
         $options = array(
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Veiculo',
                 'module' => 'admin',
                 'controller' => 'veiculo',
-                'pages' => array()
+                'pages' => $this->getSubMenu()
             )),
             new App_Navigation_Page_Mvc(array(
                 'label' => 'Imagem',
@@ -56,6 +57,28 @@ class Admin_Menu_Top extends Zend_Navigation
         );
 
         parent::__construct($options);
+    }
+
+    /**
+     *
+     * @return Zend_Navigation_Page_Mvc 
+     */
+    public function getSubmenu()
+    {
+
+        $request = Zend_Controller_Front::getInstance()->getRequest();
+        if ($request->getActionName() !== 'create' && $request->getActionName() !== 'index') {
+
+            if ($request->getParam('veiculo_id')) {
+                $veiculoId = $request->getParam('veiculo_id');
+            } else {
+                $veiculoId = $request->getParam('id');
+            }
+
+            $menu = new Admin_Menu_Veiculo($veiculoId);
+            return $menu->getPages();
+        }
+        return array();
     }
 
 }

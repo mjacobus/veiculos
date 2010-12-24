@@ -1,9 +1,10 @@
+
 $(document).ready(function(){
 
     // ajax submit for crud forms
     $('form.crud').live('submit',function(e){
-        e.preventDefault();
         load();
+        e.preventDefault();
         var form = $(this);
         $.ajax({
             type: 'POST',
@@ -15,79 +16,15 @@ $(document).ready(function(){
                     json = eval('(' + json + ')');
                 showCrudMessages(json.messages,form);
                 showFormErrors(json.formErrors, form);
-                if (json.success && (json.goTo != undefined && json.goTo != '')) {
-                    var parts = json.goTo.split('#');
-                    if (parts.length > 1) {
-                        load();
-                        $('#' + parts[1]).load(parts[0], function(){
-                            unload();
-                            showCrudMessages(json.messages,$(this).find('form.crud'));
-                        });
-                    } else {
-                        $('#view').load(json.goTo);
-                        $('#dialog').dialog('close');
-                    }
+                if (json.success && (json.goTo != undefined && json.goTo != '' && json.goTo !== window.location.href)) {
+                var parts = json.goTo.split('#');
+                    window.location.href = json.goTo;
                 }
             },
             error: ajaxError,
             complete: unload
         });
     });
-
-    //dialog ajax
-    $('#dialog a,.actions a.ajax').live('click',function(){
-        load();
-
-        $('#dialog').load($(this).attr('href'), function(html, status){
-            unload();
-        })
-        .dialog({
-            modal:true,
-            width: 600
-        })
-        .dialog('open');
-
-        return false;
-    });
-
-    // ajax links
-    $('a.ajax-load, a.order').live('click',function(){
-        $('#view').load($(this).attr('href'));
-        return false;
-    });
-
-
-    $('#searchForm').live('submit',function(e){
-        e.preventDefault();
-        var form = $(this);
-        load();
-        $.ajax({
-            url: form.attr('action'),
-            data: form.serialize(),
-            cache:false,
-            type: 'GET',
-            success: function(html){
-                $('#view').html(html)
-            },
-            complete: unload,
-            error: ajaxError
-        });
-    });
-
-    $('#menuTop a').live('click',function(){
-        load();
-        var a = $(this);
-        $('#view').load(a.attr('href'), function(response, status){
-            unload();
-            if (status !== "error") {
-                $('#menuTop li').removeClass('active');
-                a.parent('li').addClass('active');
-            }
-        });
-        return false;
-    });
-
-    
 
 
 });

@@ -557,7 +557,7 @@ div.form-elements {
 
 div.label-and-element div {
     float:left;
-    width: 65px;
+    width: 75px;
 }
 
 div.label-and-element label {
@@ -609,7 +609,10 @@ a, a:hover, a:active, a:visited {
 
 }
 .navigation {
-    margin-left: -30px;
+    border-bottom: 1px solid #EEEEEE;
+    height: 28px;
+    margin: 2px 0 0;
+    padding: 0;
 }
 .navigation li {
     background: none repeat scroll 0 0 #EEEEEE;
@@ -635,7 +638,32 @@ a, a:hover, a:active, a:visited {
 .navigation li.active {
     border-color: white;
     background:white;
+    background: none repeat scroll 0 0 white;
+    border-color: gray gray white;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-top: 1px solid #eee;
 }
+
+.navigation li ul {
+    display: none;
+}
+
+.navigation li.active ul {
+    border-bottom: 1px solid #EEEEEE;
+    display: block;
+    float: left;
+    height: 27px;
+    margin: 13px 0 18px;
+    position: absolute;
+    width: 400px;
+}
+
+.navigation li.active ul li {
+    float: left;
+    border: solid black 1px 1px 0 1px;
+}
+
 
 body, #menuTop,.ui-dialog .ui-dialog-content {
     background: none repeat scroll 0 0 #556677
@@ -644,7 +672,8 @@ body, #menuTop,.ui-dialog .ui-dialog-content {
 div.form-elements {
     background:white;
     padding: 5px;
-    
+    margin-top: 40px;
+
 }
 
 
@@ -654,3 +683,4 @@ div.form-elements {
     width: 800px;
     padding: 5px;
 }
+

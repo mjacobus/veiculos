@@ -5,7 +5,7 @@ class Admin_MarcaController extends App_Controller_Crud_Abstract
 
     /**
      *
-     * @var Application_Admin_Model_Veiculo
+     * @var Admin_Model_Marca
      */
     public $model;
 

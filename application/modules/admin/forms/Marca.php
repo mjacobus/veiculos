@@ -13,7 +13,7 @@ class Admin_Form_Marca extends App_Form_Abstract
     /**
      * Add Name wich is a Zend_Form_Element_Text
      * length 255
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Marca
      */
     public function addNome()
     {

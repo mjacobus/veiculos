@@ -11,7 +11,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     public function init()
     {
-        $this->setAttrib('class','crud');
+        $this->setAttrib('class', 'crud');
         $currentYear = ((int) date('Y') + 1);
         for ($i = $currentYear; $i >= 1920; $i--) {
             $this->_availableYears[$i] = $i;
@@ -35,7 +35,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
     /**
      * Add Model wich is a Zend_Form_Element_Text
      * length 255
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addModelo()
     {
@@ -46,7 +46,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
     /**
      * Add Color wich is a Zend_Form_Element_Text
      * length 255
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addCor()
     {
@@ -56,7 +56,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add LicensePlate wich is a Zend_Form_Element_Text
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addPlaca()
     {
@@ -67,7 +67,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add Brand wich is a Zend_Form_Element_Select
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addMarca()
     {
@@ -80,7 +80,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add Brand wich is a Zend_Form_Element_Select
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addCombustivel()
     {
@@ -93,7 +93,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add Brand wich is a Zend_Form_Element_Select
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addTipo()
     {
@@ -106,7 +106,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add Brand wich is a Zend_Form_Element_Select
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addAno()
     {
@@ -121,7 +121,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add Brand wich is a Zend_Form_Element_Select
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addAnoModelo()
     {
@@ -136,7 +136,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add Brand wich is a Zend_Form_Element_Text
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addValor()
     {
@@ -148,7 +148,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add option to show price or not
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addExibirValor()
     {
@@ -159,7 +159,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add priority
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addSituacao()
     {
@@ -171,7 +171,7 @@ class Admin_Form_Veiculo extends App_Form_Abstract
 
     /**
      * Add priority
-     * @return Application_Admin_Form_Veiculo
+     * @return Admin_Form_Veiculo
      */
     public function addOrdem()
     {
