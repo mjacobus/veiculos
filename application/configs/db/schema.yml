@@ -350,10 +350,6 @@ Imagem:
       type: string(255)
       unique: true
       notnull: true
-    md5:
-      type: string(32)
-      unique: true
-      notnull: true
     descricao:
       type: string(255)
       notnull: true

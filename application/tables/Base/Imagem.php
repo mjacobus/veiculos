@@ -7,7 +7,6 @@
  * 
  * @property integer $id
  * @property string $arquivo
- * @property string $md5
  * @property string $descricao
  * @property Doctrine_Collection $VeiculoImagem
  * @property Doctrine_Collection $Marcas
@@ -33,12 +32,6 @@ abstract class Base_Imagem extends Doctrine_Record
              'unique' => true,
              'notnull' => true,
              'length' => '255',
-             ));
-        $this->hasColumn('md5', 'string', 32, array(
-             'type' => 'string',
-             'unique' => true,
-             'notnull' => true,
-             'length' => '32',
              ));
         $this->hasColumn('descricao', 'string', 255, array(
              'type' => 'string',
