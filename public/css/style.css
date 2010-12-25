@@ -3,6 +3,11 @@ html,body {
     margin: 0;
     font-family: Verdana, sans-serif;
 }
+
+body {
+    margin-top: 20px;
+}
+
 table {
     width:100%;
 }
