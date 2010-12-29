@@ -10,6 +10,7 @@ class Admin_Model_Imagem extends App_Model_Crud
      */
     protected $_orderMapping = array(
         'descricao' => 'base.descricao',
+        'arquivo' => 'base.arquivo',
     );
 
     public function init()

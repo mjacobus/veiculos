@@ -6,6 +6,7 @@
     <tr>
         <th class="id all"><?= $this->cc('all') ?></th>
         <th><?= $this->order('Descrição','descricao') ?></th>
+        <th>Imagem</th>
         <th class="actions">
             <a href="<?= $this->c() ?>" class="ajax create"><img src="<?= $this->ci() ?>" alt="adicionar" /></a>
         </th>
@@ -17,6 +18,11 @@
     <tr class="<?= ($i%2) ? 'alt' : '' ?>">
        <td class="id"><?= $this->cc($id) ?></td>
        <td><?= $record->descricao ?></td>
+       <td>
+           <div class="image">
+           <img src="<?= $this->image($record->arquivo, '100x100') ?>" />
+           </div>
+       </td>
 
         <td class="actions">
             <?php $url = $this->crudUrl ?>
