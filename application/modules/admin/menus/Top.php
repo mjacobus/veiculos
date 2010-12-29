@@ -13,42 +13,49 @@ class Admin_Menu_Top extends Zend_Navigation
 
         $options = array(
             new App_Navigation_Page_Mvc(array(
+                'route' => 'default',
                 'label' => 'Veiculo',
                 'module' => 'admin',
                 'controller' => 'veiculo',
                 'pages' => $this->getSubMenu()
             )),
             new App_Navigation_Page_Mvc(array(
+                'route' => 'default',
                 'label' => 'Imagem',
                 'module' => 'admin',
                 'controller' => 'imagem',
                 'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
+                'route' => 'default',
                 'label' => 'Marca',
                 'module' => 'admin',
                 'controller' => 'marca',
                 'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
+                'route' => 'default',
                 'label' => 'Combustível',
                 'module' => 'admin',
                 'controller' => 'combustivel',
                 'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
+                'route' => 'default',
                 'label' => 'Usuário',
                 'module' => 'admin',
                 'controller' => 'usuario',
                 'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
+                'route' => 'default',
                 'label' => 'Perfil',
                 'module' => 'admin',
                 'controller' => 'perfil',
                 'pages' => array()
             )),
             new App_Navigation_Page_Mvc(array(
+                'route' => 'default',
                 'label' => 'Sair',
                 'module' => 'admin',
                 'controller' => 'sair',

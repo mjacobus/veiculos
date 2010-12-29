@@ -13,4 +13,16 @@
 class Imagem extends Base_Imagem
 {
 
+    protected $_oldFilename;
+
+    public function preDelete()
+    {
+        $this->_oldFilename = $this->arquivo;
+    }
+
+    public function postDelete()
+    {
+        App_Image::getInstance()->removeImage($this->_oldFilename);
+    }
+
 }

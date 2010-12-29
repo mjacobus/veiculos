@@ -20,7 +20,7 @@ class Admin_Form_Imagem extends App_Form_Abstract
     public function addDescricao()
     {
         $element = $this->getTextElement('descricao', 'Descrição')
-            ->setDecorators($this->_elementDecorators);
+                ->setDecorators($this->_elementDecorators);
         $this->addElement($element);
         return $this;
     }
@@ -37,7 +37,7 @@ class Admin_Form_Imagem extends App_Form_Abstract
      * Add file wich is a Zend_Form_Element_File
      * @return Admin_Form_ImageUpload
      */
-    public function addArquivo(array $params = array())
+    public function addArquivo()
     {
         $element = new Zend_Form_Element_File('file');
         $this->setRequired($element);
@@ -45,18 +45,19 @@ class Admin_Form_Imagem extends App_Form_Abstract
             ->setDestination(APPLICATION_PATH . '/../tmp/uploads')
             ->addValidator('Extension', false, 'jpg,png,gif,jpeg')
             ->addValidator('FilesSize', false, array('max' => '2MB'))
-            ->setMaxFileSize(2 * 1024 * 1024)
             ->setDecorators(array(
                 'Description',
                 'File',
                 'Errors',
                 array(array('element' => 'HtmlTag'), array('tag' => 'div', 'class' => 'element')),
                 array('Label', array('tag' => 'div')),
-                array('HtmlTag', array('tag' => 'div','class' => 'label-and-element'))
+                array('HtmlTag', array('tag' => 'div', 'class' => 'label-and-element'))
             ));
 
-        if (array_key_exists('id', $params)) {
-            $element->setDescription("Para alterar imagem prencha este campo.");
+        $request = Zend_Controller_Front::getInstance()->getRequest();
+
+        if ($request->getParam('id')) {
+            $element->setDescription("Para alterar imagem preencha este campo.");
             $this->setRequired($element, false);
             $element->setLabel('');
         }
@@ -71,12 +72,15 @@ class Admin_Form_Imagem extends App_Form_Abstract
      */
     public function addImagem(array $params = array())
     {
-        if (array_key_exists('id', $params)) {
-            $element = new Zend_Form_Element_Image('image', array());
+        $request = Zend_Controller_Front::getInstance()->getRequest();
+
+        if ($request->getParam('id')) {
+            $element = new Zend_Form_Element_Image('arquivo', array());
             $element->setLabel('Imagem')
-                ->setAttrib('style', 'width:400px;')
-                ->setDecorators($this->_elementDecorators);;
-            $element->getDecorator('HtmlTag')->setOption('style', 'height:310px;');
+                ->setAttrib('style', 'width:200px;')
+                ->setDecorators($this->_elementDecorators);
+            
+            $element->getDecorator('HtmlTag')->setOption('style', 'height:200px;');
             $this->addElement($element);
         }
         return $this;

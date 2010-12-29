@@ -79,13 +79,32 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'update' => '/img/update_24x24.png',
             'delete' => '/img/delete_24x24.png',
         ));
-        /*TODO: bring to the application.ini*/
+        /* TODO: bring to the application.ini */
         $view->addHelperPath("ZendX/JQuery/View/Helper", "ZendX_JQuery_View_Helper");
         $view->addHelperPath("App/View/Helper", "App_View_Helper");
         $viewRenderer = new Zend_Controller_Action_Helper_ViewRenderer();
         $viewRenderer->setView($view);
-            Zend_Controller_Action_HelperBroker::addHelper($viewRenderer);
+        Zend_Controller_Action_HelperBroker::addHelper($viewRenderer);
+    }
 
+    /**
+     * Init image token salt and route
+     */
+    protected function _initImageResizer()
+    {
+        $image = App_Image::getInstance();
+
+        $image->setOriginalPath(APPLICATION_PATH . '/../files/images/original')
+            ->setResizedPath(APPLICATION_PATH . '/../files/images/resized')
+            ->setTokenSalt('tokensalt');
+
+        $router = Zend_Controller_Front::getInstance()->getRouter();
+
+        $router->addRoute('image', new Zend_Controller_Router_Route_Regex(
+                'image/([\w-\d]+)_(\d+)x(\d+)\.(\w{3})',
+                array('module' => 'default', 'controller' => 'image', 'action' => 'index'),
+                array(1 => 'file', 2 => 'width', 3 => 'height', 4 => 'extention'))
+        );
     }
 
 }
