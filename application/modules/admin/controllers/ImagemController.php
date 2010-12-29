@@ -12,6 +12,9 @@ class Admin_ImagemController extends App_Controller_Crud_Abstract
     public function init()
     {
         $this->model = new Admin_Model_Imagem();
+        if (!$this->getRequest()->getParam('per-page')) {
+            $this->getRequest()->setParam('per-page',12);
+        }
     }
 
 }

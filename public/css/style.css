@@ -693,3 +693,45 @@ div.form-elements {
 table {
     margin-top: 15px;
 }
+
+
+/* Lista de imagens */
+
+.images ul {
+
+}
+
+.images ul li {
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+    list-style: none;
+    float:left;
+    margin: 10px;
+    overflow: hidden;
+    padding:0;
+}
+.images ul li .description, .images ul li .actions{
+    width: 100%;
+    text-align: center;
+    background: black;
+    font-size: 13px;
+    color:white;
+    padding:0;
+    margin:0;
+}
+.images ul li .image{
+    width: 100%;
+    height: 163px;
+    padding:0;
+    margin:0;
+}
+
+.images ul li .image img{
+    margin: auto;
+    padding:0;
+    margin:0;
+}
+.images ul li .actions{
+
+}
