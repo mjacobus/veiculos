@@ -93,7 +93,7 @@ class Admin_Model_Imagem extends App_Model_Crud
         $filename = $form->getValue('arquivo');
 
         $helper = new App_View_Helper_Image();
-        $image = $helper->image($filename, '400x400');
+        $image = $helper->image($filename, '400x267');
 
         $form->arquivo->setImage($image);
         return $this;

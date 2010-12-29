@@ -558,6 +558,8 @@ div.form-elements {
     width: 570px;
     padding: 5px;
     margin: 0 auto;
+    padding: 5px;
+    margin-top: 40px;
 }
 
 div.label-and-element div {
@@ -674,14 +676,6 @@ body, #menuTop,.ui-dialog .ui-dialog-content {
     background: none repeat scroll 0 0 #556677
 }
 
-div.form-elements {
-    background:white;
-    padding: 5px;
-    margin-top: 40px;
-
-}
-
-
 #view {
     background:white;
     float:left;
@@ -703,8 +697,8 @@ table {
 
 .images ul li {
     width: 200px;
-    height: 200px;
-    border: 1px solid gray;
+    height: 172px;
+    border: 1px solid #333;
     list-style: none;
     float:left;
     margin: 10px;
@@ -714,15 +708,17 @@ table {
 .images ul li .description, .images ul li .actions{
     width: 100%;
     text-align: center;
-    background: black;
+    background: #333333;
     font-size: 13px;
     color:white;
     padding:0;
     margin:0;
+    height: 19px;
+    overflow: hidden;
 }
 .images ul li .image{
     width: 100%;
-    height: 163px;
+    height: 134px;
     padding:0;
     margin:0;
 }

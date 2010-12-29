@@ -18,12 +18,12 @@
                        <?php $id = $record->id ?>
 
                        <div class="image">
-                           <img alt="<?= $record->descricao ?>" src="<?= $this->image($record->arquivo, '200x160') ?>" />
+                           <img title="<?= $record->descricao ?>" alt="<?= $record->descricao ?>" src="<?= $this->image($record->arquivo, '200x134') ?>" />
                        </div>
 
                        <div class="description"><?= $record->descricao ?></div>
                        <div class="actions">
-                           <a href="<?= $this->r($id) ?>" title="visualizar" class="ajax read"><img src="<?= $this->ri() ?>" title="visualizar" alt="visualizar" /></a>
+                           <?= $this->cc($id) ?>
                            <a href="<?= $this->u($id) ?>" title="editar" class="ajax update"><img src="<?= $this->ui() ?>" title="editar" alt="editar" /></a>
                            <a href="<?= $this->d($id) ?>" title="excluir" class="ajax delete"><img src="<?= $this->di() ?>" title="excluir" alt="excluir" /></a>
                        </div>
