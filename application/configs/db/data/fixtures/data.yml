@@ -29,9 +29,9 @@ Imagem:
     updated_at: '2010-12-29 16:47:11'
   Imagem_4:
     arquivo: 3638326237386330373364626364633831306662613566623261653936646563.png
-    descricao: 'Logotipo Chevrolet'
+    descricao: 'Logotipo da Chevrolet'
     created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:47:20'
+    updated_at: '2010-12-30 19:10:43'
   Imagem_5:
     arquivo: 6261353766366434336330303431316261613830376438353531643366653637.png
     descricao: 'Logotipo da Chrysler'
@@ -74,14 +74,14 @@ Imagem:
     updated_at: '2010-12-29 16:51:49'
   Imagem_13:
     arquivo: 3637636437323063363466326566663535653830346531636235653132306661.png
-    descricao: 'logotipo da nissan'
+    descricao: 'logotipo da Nissan'
     created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:51:39'
+    updated_at: '2010-12-30 19:11:00'
   Imagem_14:
     arquivo: 3937323135396661333831303061623738653136383836393538383338356435.png
-    descricao: 'Logotio da Peugeot'
+    descricao: 'Logotipo da Peugeot'
     created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:52:00'
+    updated_at: '2010-12-30 19:09:18'
   Imagem_15:
     arquivo: 3534343434313964313830343739633133633334393833353962656463613861.png
     descricao: 'Logotipo da Renault'
@@ -102,13 +102,21 @@ Imagem:
     descricao: 'Logotipo da Volvo'
     created_at: '2010-12-24 23:39:19'
     updated_at: '2010-12-29 16:52:33'
+ExceptionLog:
+  ExceptionLog_1:
+    parameters: "Array\n(\n    [module] => admin\n    [controller] => imagem\n    [action] => update\n    [id] => 14\n    [per-page] => 12\n    [descricao] => Logotio da Peugeot\n    [MAX_FILE_SIZE] => 2097152\n    [submit] => Salvar\n)\n"
+    exception: Doctrine_Validator_Exception
+    message: "Validation failed in class Imagem\n\n  1 field had validation error:\n\n    * 1 validator failed on arquivo (unique)\n"
+    stack_trace: "#0 /usr/share/php/Doctrine/Connection.php(1395): Doctrine_Transaction->commit(NULL)\n#1 /usr/share/php/Doctrine/Connection/UnitOfWork.php(143): Doctrine_Connection->commit()\n#2 /usr/share/php/Doctrine/Record.php(1705): Doctrine_Connection_UnitOfWork->saveGraph(Object(Imagem))\n#3 /var/www/veiculos/application/modules/admin/models/Imagem.php(79): Doctrine_Record->save()\n#4 /var/www/veiculos/library/App/Model/Crud.php(274): Admin_Model_Imagem->_saveRecord(Object(Imagem), Array)\n#5 /var/www/veiculos/library/App/Model/Crud.php(248): App_Model_Crud->save(Array, '14')\n#6 /var/www/veiculos/application/modules/admin/controllers/ImagemController.php(27): App_Model_Crud->update(Array, '14')\n#7 /var/www/veiculos/library/App/Controller/Crud/Abstract.php(146): Admin_ImagemController->doUpdate(Object(Zend_Controller_Request_Http), Object(Admin_Form_Imagem))\n#8 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Action.php(513): App_Controller_Crud_Abstract->updateAction()\n#9 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('updateAction')\n#10 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))\n#11 /usr/share/php/ZendFramework-1.11.1/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()\n#12 /usr/share/php/ZendFramework-1.11.1/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()\n#13 /var/www/veiculos/public/index.php(26): Zend_Application->run()\n#14 {main}"
+    created_at: '2010-12-30 18:47:46'
+    updated_at: '2010-12-30 18:47:46'
 Marca:
   Marca_1:
     nome: 'Alfa Romeo'
     Logo: Imagem_1
     url: alfa-romeo
     created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-24 23:39:19'
+    updated_at: '2010-12-30 19:05:10'
   Marca_2:
     nome: Audi
     Logo: Imagem_2
@@ -120,7 +128,7 @@ Marca:
     Logo: Imagem_3
     url: bmw
     created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-24 23:39:19'
+    updated_at: '2010-12-30 19:04:43'
   Marca_4:
     nome: Chevrolet
     Logo: Imagem_4
@@ -223,9 +231,9 @@ VeiculoTipo:
     created_at: '2010-12-24 23:39:20'
     updated_at: '2010-12-24 23:39:20'
 VeiculoSituacao:
-  VeiculoSituacao_2:
-    nome: Cancelado
   VeiculoSituacao_1:
+    nome: Cancelado
+  VeiculoSituacao_2:
     nome: Disponível
   VeiculoSituacao_3:
     nome: Vendido
@@ -236,8 +244,8 @@ Veiculo:
     Marca: Marca_17
     Combustivel: Combustivel_1
     Tipo: VeiculoTipo_2
-    Situacao: VeiculoSituacao_1
-    situacao_modificada_em: '2010-12-24 23:39:20'
+    Situacao: VeiculoSituacao_2
+    situacao_modificada_em: '2010-12-30 18:42:07'
     valor: '500.056,00'
     exibir_valor: true
     ano: '1984'
@@ -253,8 +261,8 @@ Veiculo:
     Marca: Marca_7
     Combustivel: Combustivel_1
     Tipo: VeiculoTipo_2
-    Situacao: VeiculoSituacao_1
-    situacao_modificada_em: '2010-12-24 23:39:20'
+    Situacao: VeiculoSituacao_2
+    situacao_modificada_em: '2010-12-30 18:42:07'
     valor: '1.500.056,00'
     exibir_valor: true
     ano: '1999'
@@ -270,8 +278,8 @@ Veiculo:
     Marca: Marca_7
     Combustivel: Combustivel_1
     Tipo: VeiculoTipo_2
-    Situacao: VeiculoSituacao_1
-    situacao_modificada_em: '2010-12-24 23:39:20'
+    Situacao: VeiculoSituacao_2
+    situacao_modificada_em: '2010-12-30 18:42:07'
     valor: '1.500.056,00'
     exibir_valor: true
     ano: '1999'
@@ -287,8 +295,8 @@ Veiculo:
     Marca: Marca_7
     Combustivel: Combustivel_1
     Tipo: VeiculoTipo_2
-    Situacao: VeiculoSituacao_1
-    situacao_modificada_em: '2010-12-24 23:39:20'
+    Situacao: VeiculoSituacao_2
+    situacao_modificada_em: '2010-12-30 18:42:07'
     valor: '1.500.056,00'
     exibir_valor: true
     ano: '1999'
@@ -332,7 +340,7 @@ User:
     email: admin@somedomain.com
     login: admin
     enabled: true
-    password: b69f144fb5483b867298a5bcf57ad8ea00bc5f3d
+    password: c182237b58f9fb7839f61d8917efe897e8940626
     password_recovery_hash: null
     password_recovery_expiration_date: null
     Role: UserRole_2
