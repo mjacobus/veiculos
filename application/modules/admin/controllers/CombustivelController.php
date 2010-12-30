@@ -5,7 +5,7 @@ class Admin_CombustivelController extends App_Controller_Crud_Abstract
 
     /**
      *
-     * @var Admin_Model_Marca
+     * @var Admin_Model_Combustivel
      */
     public $model;
 

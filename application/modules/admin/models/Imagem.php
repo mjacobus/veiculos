@@ -16,6 +16,9 @@ class Admin_Model_Imagem extends App_Model_Crud
     public function init()
     {
         $this->_form = new Admin_Form_Imagem($this);
+        $this->setCrudMessage(self::DUPLICATED_UK,
+            'Esta imagem já foi cadastrada');
+
     }
 
     /**

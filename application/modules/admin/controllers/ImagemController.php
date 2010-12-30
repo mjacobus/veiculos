@@ -29,9 +29,11 @@ class Admin_ImagemController extends App_Controller_Crud_Abstract
         if ($record) {
             $this->postCreate($record, $form);
         } else {
-            $form->populate($request->getPost())->removeElement('arquivo');
+            foreach($form->arquivo->getMessages() as $message) {
+                $this->model->addErrorMessage($message);
+            }
+            $form->removeElement('arquivo');
         }
-
         $this->setResponseHandler($request, $form);
     }
 
@@ -47,8 +49,8 @@ class Admin_ImagemController extends App_Controller_Crud_Abstract
         $results = $dql->fetchArray();
         $helper = new App_View_Helper_Image();
 
-        foreach($results as $i => $result) {
-            $results[$i]['arquivo'] = $helper->image($result['arquivo'],'150x100');
+        foreach ($results as $i => $result) {
+            $results[$i]['arquivo'] = $helper->image($result['arquivo'], '150x100');
         }
 
         $this->_helper->json($results);

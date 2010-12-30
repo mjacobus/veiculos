@@ -1,0 +1,27 @@
+<div id="search">
+    <?= new Admin_Form_Search() ?>
+</div>
+
+<table>
+    <tr>
+        <th><?= $this->order('Time', 'created_at') ?></th>
+        <th><?= $this->order('Parameters') ?></th>
+        <th><?= $this->order('Exception') ?></th>
+        <th><?= $this->order('Message') ?></th>
+        <th><?= $this->order('Stack Trace', 'stack_trace') ?></th>
+    </tr>
+
+
+<?php foreach($this->records as $i => $record) : ?>
+    <?php $id = $record->id ?>
+    <tr class="<?= ($i%2) ? 'alt' : '' ?>">
+       <td><pre><?= $record->parameters ?></pre></td>
+       <td><?= $record->created_at ?></td>
+       <td><?= $record->exception ?></td>
+       <td><?= $record->message ?></td>
+       <td><pre><?= $record->stack_trace ?></pre></td>
+    </tr>
+<?php endforeach ?>
+</table>
+
+<?= $this->pagination()->render() ?>

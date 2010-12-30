@@ -70,17 +70,13 @@ class Admin_Form_Imagem extends App_Form_Abstract
      * Add image wich is a Zend_Form_Element_File
      * @return Admin_Form_ImageUpload
      */
-    public function addImagem(array $params = array())
+    public function addImagem()
     {
         $request = Zend_Controller_Front::getInstance()->getRequest();
 
         if ($request->getParam('id')) {
             $element = new Zend_Form_Element_Image('arquivo', array());
-            $element->setLabel('Imagem')
-               // ->setAttrib('style', 'width:200px;')
-                ->setDecorators($this->_elementDecorators);
-            
-            //$element->getDecorator('HtmlTag')->setOption('style', 'height:200px;');
+            $element->setLabel('Imagem')->setDecorators($this->_elementDecorators);
             $this->addElement($element);
         }
         return $this;

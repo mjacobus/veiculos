@@ -62,6 +62,24 @@ User:
       local: role_id
       foreign: id
 
+ExceptionLog:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    parameters: string(255)
+    exception: string(255)
+    message: string(255)
+    stack_trace: text
+  actAs: [Timestampable]
+  indexes:
+    search:
+      fields:
+        exception: []
+        message: []
+        parameters: []
+
 Marca:
   tableName: marca
   columns:
