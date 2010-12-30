@@ -37,6 +37,10 @@ $(document).ready(function(){
             $('#imagem_id').val(item.attr('id'));
             $('#imagem').attr('src',item.attr('src'));
         },
+        onClear : function(input, list){
+            input.val('');
+            $('#imagem').attr('src','').val('');
+        },
         suggestionField: 'descricao'
     });
 
