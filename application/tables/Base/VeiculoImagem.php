@@ -45,15 +45,16 @@ abstract class Base_VeiculoImagem extends Doctrine_Record
         $this->hasColumn('ordem', 'integer', null, array(
              'type' => 'integer',
              'unsigned' => true,
+             'default' => 0,
              'notnull' => true,
              ));
         $this->hasColumn('ilustrativa', 'boolean', null, array(
              'type' => 'boolean',
+             'default' => false,
              'notnull' => true,
              ));
         $this->hasColumn('alt', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
              'length' => '255',
              ));
         $this->hasColumn('title', 'string', 255, array(
@@ -63,7 +64,6 @@ abstract class Base_VeiculoImagem extends Doctrine_Record
              ));
         $this->hasColumn('descricao', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
              'length' => '255',
              ));
 

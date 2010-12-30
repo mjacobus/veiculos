@@ -15,8 +15,8 @@
 <?php foreach($this->records as $i => $record) : ?>
     <?php $id = $record->id ?>
     <tr class="<?= ($i%2) ? 'alt' : '' ?>">
-       <td><pre><?= $record->parameters ?></pre></td>
        <td><?= $record->created_at ?></td>
+       <td><pre><?= $record->parameters ?></pre></td>
        <td><?= $record->exception ?></td>
        <td><?= $record->message ?></td>
        <td><pre><?= $record->stack_trace ?></pre></td>

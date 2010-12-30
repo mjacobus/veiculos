@@ -13,4 +13,9 @@
 class VeiculoImagem extends Base_VeiculoImagem
 {
 
+    public function setOrdem($value)
+    {
+        $this->_set('ordem', (int) $value);
+    }
+
 }

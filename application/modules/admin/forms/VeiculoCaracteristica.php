@@ -37,8 +37,7 @@ class Admin_Form_VeiculoCaracteristica extends App_Form_Abstract
     }
 
     /**
-     * Add Description wich is a Zend_Form_Element_Text
-     * length 255
+     * Add Veiculo_id wich is a Zend_Form_Element_Hidden
      * @return Admin_Form_Vehicle
      */
     public function addVeiculoId()

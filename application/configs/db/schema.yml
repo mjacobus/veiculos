@@ -68,7 +68,7 @@ ExceptionLog:
       type: integer
       primary: true
       autoincrement: true
-    parameters: string(255)
+    parameters: text
     exception: string(255)
     message: string(255)
     stack_trace: text
@@ -78,7 +78,6 @@ ExceptionLog:
       fields:
         exception: []
         message: []
-        parameters: []
 
 Marca:
   tableName: marca
@@ -306,19 +305,19 @@ VeiculoImagem:
     ordem:
       type: integer
       unsigned: true
+      default: 0
       notnull: true
     ilustrativa:
       type: boolean
+      default: false
       notnull: true
     alt:
       type: string(255)
-      notnull: true
     title:
       type: string(255)
       notnull: true
     descricao:
       type: string(255)
-      notnull: true
   actAs: [Timestampable]
   relations:
     Veiculo:

@@ -35,7 +35,7 @@ class Admin_Form_Marca extends App_Form_Abstract
         $this->addElement($element);
         return $this;
     }
-    
+
     /**
      * Add Name wich is a Zend_Form_Element_Text
      * length 255
@@ -43,12 +43,12 @@ class Admin_Form_Marca extends App_Form_Abstract
      */
     public function addImagemDescricao()
     {
-        $element = $this->getTextElement('imagem_descricao','Imagem');
+        $element = $this->getTextElement('imagem_descricao', 'Imagem');
         $this->addElement($element);
         return $this;
     }
 
-     /**
+    /**
      * Add image wich is a Zend_Form_Element_File
      * @return Admin_Form_ImageUpload
      */
@@ -56,15 +56,11 @@ class Admin_Form_Marca extends App_Form_Abstract
     {
         $request = Zend_Controller_Front::getInstance()->getRequest();
 
-        if ($request->getParam('id')) {
-            $element = new Zend_Form_Element_Image('imagem', array());
-            $element->setLabel('Arquivo')
-                //->setAttrib('style', 'width:200px;')
-                ->setDecorators($this->_elementDecorators);
+        $element = new Zend_Form_Element_Image('imagem', array());
+        $element->setLabel('Arquivo')
+            ->setDecorators($this->_elementDecorators);
 
-           // $element->getDecorator('HtmlTag')->setOption('style', 'height:200px;');
-            $this->addElement($element);
-        }
+        $this->addElement($element);
         return $this;
     }
 
