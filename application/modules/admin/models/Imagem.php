@@ -81,22 +81,18 @@ class Admin_Model_Imagem extends App_Model_Crud
     }
 
     /**
-     * Populates a form
-     * @param int $id
-     * @throws App_Exception_RegisterNotFound case register wont exist
-     * @return Admin_Model_Brand
+     * Post populate form rotine
+     * @param Doctrine_Record $record
+     * @param App_Form_Abstract $form
      */
-    public function populateForm($id)
+    public function postPopulateForm(Doctrine_Record $record, App_Form_Abstract $form)
     {
-        parent::populateForm($id);
-        $form = $this->getForm();
         $filename = $form->getValue('arquivo');
-
+        
         $helper = new App_View_Helper_Image();
         $image = $helper->image($filename, '400x267');
 
         $form->arquivo->setImage($image);
-        return $this;
     }
 
 }

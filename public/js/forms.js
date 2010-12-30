@@ -26,6 +26,21 @@ $(document).ready(function(){
         });
     });
 
+    $('#imagem_descricao').inputSuggest({
+        url: baseUrl + '/admin/imagem/suggest',
+        preAppend: function preAppend(item,suggestion,input,list) {
+            item.attr('id', suggestion.id);
+            item.attr('src', suggestion.arquivo);
+            return item;
+        },
+        postSelect: function(item){
+            $('#imagem_id').val(item.attr('id'));
+            $('#imagem').attr('src',item.attr('src'));
+        },
+        suggestionField: 'descricao'
+    });
+
+
 
 });
 

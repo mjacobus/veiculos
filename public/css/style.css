@@ -123,6 +123,10 @@ input[type='checkbox'],input[type='radio'] {
     margin: 2px;
 }
 
+div.form-elements input[type='text'] {
+    width: 100%;
+}
+
 td div input[type='text'],td div input[type='password'],.subtitulo input[type='text'],.subtitulo input[type='password'],.subtitulo  select
 {
     width: 90% !important;
@@ -555,7 +559,7 @@ div.counter {
 
 div.form-elements {
     float: left;
-    width: 570px;
+   
     padding: 5px;
     margin: 0 auto;
     padding: 5px;
@@ -572,7 +576,8 @@ div.label-and-element label {
 }
 
 div.label-and-element div.element {
-    width: 470px;
+    width: 695px;
+
 }
 
 #submit-label label {
@@ -730,4 +735,29 @@ table {
 }
 .images ul li .actions{
 
+}
+
+
+/**
+ *
+ * Jquery Input Suggest
+*/
+ul.suggest {
+    position:absolute;
+    padding:0;
+    border: 1px #eee solid;
+    background: white;
+    overflow: hidden;
+}
+
+ul.suggest li {
+    width: 100%;
+    text-align: left;
+    margin-left: 5px;
+    color:gray;
+}
+
+ul.suggest li.active {
+    background: #ddd;
+    color:black;
 }

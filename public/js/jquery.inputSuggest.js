@@ -1,0 +1,235 @@
+(function( $ ){
+    $.fn.inputSuggest = function(options) {
+
+        var settings = {
+            url: window.location.href,
+            method: 'POST',
+            cache: false,
+            async: false,
+            stickToTheList: true,
+            minChars: 3,
+            suggestionField: 'value',
+            /**
+             * Handles the suggetstions
+             * @param suggestions the ajax response. A json object
+             * @param list the list to append the items
+             * @param input the typing input
+             */
+            handleSuggestions: function(suggestions,list,input) {
+                list.html('');
+                for(var i=0; i < suggestions.length; i++) {
+                    this.preGetItem(suggestions[i],input,list);
+                    var item = this.getItem(suggestions[i],input,list);
+                    item = this.defaultPreAppend(item,suggestions[i],input,list);
+                    item = this.preAppend(item,suggestions[i],input,list);
+                    list.append(item);
+                }
+            },
+            /**
+             * Creates and returns an item based on one item of the response
+             * @param   suggestion is the array element containing the object
+             *          with the necessary information to create the item
+             * @param   input where the suggestion is acting on
+             * @param   list the list
+             *
+             */
+            getItem : function(suggestion,input,list) {
+                return $('<li></li>');
+            },
+            /**
+             * Execute after getting item
+             * @param   item just created li element
+             * @param   suggestion the response element
+             * @param   input the input
+             * @param   list the list
+             */
+            defaultPreAppend : function(item, suggestion, input,list) {
+                var value = suggestion[this.suggestionField];
+                var regexp = new RegExp(input.val(),'i');
+                var matches = value.match(regexp);
+                var bolded;
+                if (matches !== null){
+                    bolded = value.replace(regexp,'<strong>' + matches[0] + '</strong>')
+                } else {
+                    bolded = '???error???';
+                }
+                item.attr('title',value).html(bolded);
+                return item;
+            },
+            /**
+             * Execute after getting item
+             * @param   item just created li element
+             * @param   suggestion the response element
+             * @param   input the input
+             * @param   list the list
+             */
+            preAppend : function(item, suggestion, input,list) {
+                return item;
+            },
+            /**
+             * Execute before getting item
+             * @param   item is the array element containing the object
+             *          with the necessary information to create the item
+             * @param   input where the suggestion is acting on
+             * @param   list the list
+             *
+             */
+            preGetItem : function(item, input,list) {
+                
+            },
+            /**
+             * Handles item select
+             * @param selected li element being clicked
+             * @param input the typing input
+             * @param list the list to append the items
+             */
+            onSelect: function (selected,input,list) {
+                input.val(selected.attr('title'));
+                selected.removeClass('active');
+                list.hide();
+            },
+            /**
+             * Pre select
+             * @param selected li element being clicked
+             * @param input the typing input
+             * @param list the list to append the items
+             */
+            preSelect: function (selected,input,list) {
+                
+            },
+            /**
+             * Pre select
+             * @param selected li element being clicked
+             * @param input the typing input
+             * @param list the list to append the items
+             */
+            postSelect: function (selected,input,list) {
+                
+            },
+            /**
+             * Handles item mouse over
+             * @param overed li element being clicked
+             * @param list the list to append the items
+             * @param input the typing input
+             */
+            onMouseOver: function (overed,input,list) {
+                $('#' + list.attr('id') + ' li').removeClass('active');
+                overed.addClass('active');
+            },
+            /**
+             * Handles input blur
+             * @param input the imput the suggestion is actin on
+             */
+            onBlur: function(input) {
+                var value = input.val();
+                var list = $('#' + input.attr('id') + '-suggest' )
+                var valid = false;
+                list.hide();
+
+                if (list.length === 1) {
+                    list.children('li').each(function(){
+                        if ($(this).attr('title') === value) {
+                            valid = true;
+                            return;
+                        }
+                    }).each(function(){
+                        if ($(this).hasClass('active')) {
+                            settings.preSelect($(this),input,list);
+                            settings.onSelect($(this),input,list);
+                            settings.postSelect($(this),input,list);
+                            valid = true;
+                            return;
+                        }
+                    }).removeClass('active');
+                }
+                if (this.stickToTheList && !valid) {
+                    input.val('');
+                }
+            }
+        };
+
+        if (options) {
+            $.extend( settings, options );
+        }
+
+        this.each(function(){
+
+            $(this).attr('autocomplete','off');
+            $(this).keyup(function(e){
+
+                var url = settings.url;
+                var inputName = $(this).attr('name');
+                var listId = inputName + '-suggest';
+                var listSelector = '#' + listId;
+                var $input = $(this);
+                var value = $input.val();
+
+                /**
+                 * Navigation keys
+                 * keys: arrow up, arrow down
+                 */
+                if(e.keyCode == 38 || e.keyCode ==40) {
+                    var $current = $(listSelector + ' li.active');
+                    if ($current.length == 0) {
+                        $(listSelector + ' li:first').addClass('active');
+                        return;
+                    }
+                    if (e.keyCode == 38) { //up key
+                        var $prev = $current.prev('li');
+                        if($prev.length === 1) {
+                            $(listSelector + ' li').removeClass('active');
+                            $prev.addClass('active');
+                        }
+                    } else if (e.keyCode == 40) { //down key
+                        var $next = $current.next('li');
+                        if($next.length === 1) {
+                            $(listSelector + ' li').removeClass('active');
+                            $next.addClass('active');
+                        }
+                    }
+                    return
+                } // navigation keys
+
+
+                if (value.length < settings.minChars || $input.attr('lastval') == value) {
+                    $input.attr('lastval',value);
+                    return;
+                }
+
+                if ($(listSelector).length == 0) {
+                    $('<ul id="' + listId + '" class="suggest"></ul>').appendTo($(this).parent());
+                }
+
+                var $list = $(listSelector);
+                $list.html('').show().css({
+                    width: $(this).width(),
+                    'margin-left': $(this).css('margin-left')
+                });
+
+                $.ajax({
+                    url: url,
+                    type: settings.method,
+                    cache: settings.cache,
+                    asyc: settings.async,
+                    data: {
+                        hint:value
+                    },
+                    success: function(suggestions){
+                        settings.handleSuggestions(suggestions,$list,$input);
+                        $list.children('li').click(function(){
+                            settings.onSelect($(this),$input,$list);
+                        }).hover(function(){
+                            settings.onMouseOver($(this),$input,$list);
+                        });
+                    }
+                });
+            });
+
+            $(this).blur(function() {
+                settings.onBlur($(this));
+            });
+
+            
+        });//this.each
+    }
+})(jQuery)

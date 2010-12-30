@@ -11,9 +11,11 @@
                     ?>
         <?= $this->headStyle() ?>
         <?= $this->headScript() ?>
-        <?= $this->jQuery()->setVersion('1.4')->uiEnable()->setUiVersion('1.7.2') ?>
+        <?//= $this->jQuery()->setVersion('1.4')->uiEnable()->setUiVersion('1.7.2') ?>
         <link rel="SHORTCUT ICON" href="/public/img/icon.ico" type="image/x-icon" />
+        <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/jquery-1.4.2.min.js" charset="UTF-8"></script>
         <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/jquery.DOMWindow.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/jquery.inputSuggest.js" charset="UTF-8"></script>
         <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/forms.js" charset="UTF-8"></script>
         <script type="text/javascript">
             var baseUrl = "<?= $this->baseUrl() ?>";

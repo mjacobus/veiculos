@@ -31,5 +31,21 @@ class Admin_Model_Marca extends App_Model_Crud
         return $dql;
     }
 
+    /**
+     * Post populate form rotine
+     * @param Doctrine_Record $record
+     * @param App_Form_Abstract $form
+     */
+    public function postPopulateForm(Doctrine_Record $record, App_Form_Abstract $form)
+    {
+        $form->imagem_descricao->setValue($record->Logo->descricao);
+
+        $helper = new App_View_Helper_Image();
+        $image = $helper->image($record->Logo->arquivo,'150x100');
+
+        $form->imagem->setImage($image);
+
+    }
+
 }
 

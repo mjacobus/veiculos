@@ -35,5 +35,24 @@ class Admin_ImagemController extends App_Controller_Crud_Abstract
         $this->setResponseHandler($request, $form);
     }
 
+    /**
+     * Suggest images
+     */
+    public function suggestAction()
+    {
+        $hint = $this->getRequest()->getParam('hint');
+        $dql = $this->model->getQuery(array('search' => $hint));
+        $dql->select('id,descricao, arquivo')->limit(10);
+
+        $results = $dql->fetchArray();
+        $helper = new App_View_Helper_Image();
+
+        foreach($results as $i => $result) {
+            $results[$i]['arquivo'] = $helper->image($result['arquivo'],'150x100');
+        }
+
+        $this->_helper->json($results);
+    }
+
 }
 

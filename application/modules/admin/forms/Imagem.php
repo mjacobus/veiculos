@@ -77,10 +77,10 @@ class Admin_Form_Imagem extends App_Form_Abstract
         if ($request->getParam('id')) {
             $element = new Zend_Form_Element_Image('arquivo', array());
             $element->setLabel('Imagem')
-                ->setAttrib('style', 'width:200px;')
+               // ->setAttrib('style', 'width:200px;')
                 ->setDecorators($this->_elementDecorators);
             
-            $element->getDecorator('HtmlTag')->setOption('style', 'height:200px;');
+            //$element->getDecorator('HtmlTag')->setOption('style', 'height:200px;');
             $this->addElement($element);
         }
         return $this;
