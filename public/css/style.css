@@ -745,19 +745,23 @@ table {
 ul.suggest {
     position:absolute;
     padding:0;
-    border: 1px #eee solid;
+    border: 1px #ccc solid;
     background: white;
     overflow: hidden;
+    margin-top: 0;
 }
 
 ul.suggest li {
     width: 100%;
     text-align: left;
-    margin-left: 5px;
+    padding: 0 5px;
     color:gray;
+    font-size: 13px;
 }
 
 ul.suggest li.active {
     background: #ddd;
     color:black;
 }
+
+#error-imagem_id {display: none}

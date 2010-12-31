@@ -26,6 +26,16 @@ $(document).ready(function(){
         });
     });
 
+    // prevent submiting
+    $('#imagem').click(function(){
+        return false;
+    }).val('');
+
+    if ($('#imagem').attr('src') == '') {
+        $('#imagem').parents('div.label-and-element').hide();;
+    }
+
+    // suggest image
     $('#imagem_descricao').inputSuggest({
         url: baseUrl + '/admin/imagem/suggest',
         preAppend: function preAppend(item,suggestion,input,list) {
@@ -35,11 +45,13 @@ $(document).ready(function(){
         },
         postSelect: function(item){
             $('#imagem_id').val(item.attr('id'));
-            $('#imagem').attr('src',item.attr('src'));
+            $('#imagem').attr('src',item.attr('src'))
+                .parents('div.label-and-element').show();
         },
         onClear : function(input, list){
             input.val('');
             $('#imagem').attr('src','').val('');
+            $('#imagem').parents('div.label-and-element').hide();
         },
         suggestionField: 'descricao'
     });
