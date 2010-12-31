@@ -107,5 +107,27 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         );
     }
 
+    /**
+     * Init the configs
+     */
+    public function _initConfigs()
+    {
+        $session = new Zend_Session_Namespace('application');
+
+        if (!isset($session->config)) {
+            $session->setExpirationSeconds(600);
+
+            require_once APPLICATION_PATH . '/modules/admin/models/Configuration.php';
+            require_once APPLICATION_PATH . '/modules/admin/forms/Configuration.php';
+
+            $model = new Admin_Model_Configuration();
+            $session->config = $model->getQuery(array())->fetchArray();
+        }
+
+        foreach ($session->config as $config) {
+            App_Config::set($config['config'], $config['value']);
+        }
+    }
+
 }
 

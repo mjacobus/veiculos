@@ -102,14 +102,6 @@ Imagem:
     descricao: 'Logotipo da Volvo'
     created_at: '2010-12-24 23:39:19'
     updated_at: '2010-12-29 16:52:33'
-ExceptionLog:
-  ExceptionLog_1:
-    parameters: "Array\n(\n    [module] => admin\n    [controller] => configuration\n    [action] => create\n    [config] => site.title\n    [value] => value\n    [enabled] => 0\n)\n"
-    exception: Doctrine_Validator_Exception
-    message: "Validation failed in class Configuration\n\n  1 field had validation error:\n\n    * 1 validator failed on config (unique)\n"
-    stack_trace: "#0 /usr/share/php/Doctrine/Connection.php(1395): Doctrine_Transaction->commit(NULL)\n#1 /usr/share/php/Doctrine/Connection/UnitOfWork.php(143): Doctrine_Connection->commit()\n#2 /usr/share/php/Doctrine/Record.php(1705): Doctrine_Connection_UnitOfWork->saveGraph(Object(Configuration))\n#3 /var/www/veiculos/library/App/Model/Crud.php(303): Doctrine_Record->save()\n#4 /var/www/veiculos/library/App/Model/Crud.php(275): App_Model_Crud->_saveRecord(Object(Configuration), Array)\n#5 /var/www/veiculos/library/App/Model/Crud.php(239): App_Model_Crud->save(Array)\n#6 /var/www/veiculos/library/App/Controller/Crud/Abstract.php(67): App_Model_Crud->create(Array)\n#7 /var/www/veiculos/library/App/Controller/Crud/Abstract.php(120): App_Controller_Crud_Abstract->doCreate(Object(Zend_Controller_Request_Http), Object(Admin_Form_Configuration))\n#8 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Action.php(513): App_Controller_Crud_Abstract->createAction()\n#9 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('createAction')\n#10 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))\n#11 /usr/share/php/ZendFramework-1.11.1/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()\n#12 /usr/share/php/ZendFramework-1.11.1/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()\n#13 /var/www/veiculos/public/index.php(26): Zend_Application->run()\n#14 {main}"
-    created_at: '2010-12-31 12:29:41'
-    updated_at: '2010-12-31 12:29:41'
 Marca:
   Marca_1:
     nome: 'Alfa Romeo'
@@ -238,6 +230,36 @@ Configuration:
     value: mobile.site.com
     created_at: '2010-12-31 12:33:00'
     updated_at: '2010-12-31 12:33:26'
+  Configuration_4:
+    enabled: true
+    config: site.name
+    value: 'Nome da Loja'
+    created_at: '2010-12-31 15:48:19'
+    updated_at: '2010-12-31 15:48:19'
+  Configuration_5:
+    enabled: true
+    config: site.address
+    value: 'Avenida Abc , numero 456, sala 7 Bairro: Centro'
+    created_at: '2010-12-31 15:51:11'
+    updated_at: '2010-12-31 15:51:18'
+  Configuration_6:
+    enabled: true
+    config: site.home.title
+    value: 'Loja Abc'
+    created_at: '2010-12-31 15:52:03'
+    updated_at: '2010-12-31 15:52:03'
+  Configuration_7:
+    enabled: true
+    config: site.phone.1
+    value: '(51) 9999 9999'
+    created_at: '2010-12-31 15:53:12'
+    updated_at: '2010-12-31 15:53:12'
+  Configuration_8:
+    enabled: true
+    config: site.phone.2
+    value: '(51) 8888 8888'
+    created_at: '2010-12-31 15:53:46'
+    updated_at: '2010-12-31 15:53:46'
 VeiculoTipo:
   VeiculoTipo_1:
     nome: Motocicleta
@@ -261,7 +283,7 @@ Veiculo:
     modelo: 'Voyage teste'
     cor: Branco
     Marca: Marca_17
-    Combustivel: Combustivel_1
+    Combustivel: Combustivel_5
     Tipo: VeiculoTipo_2
     Situacao: VeiculoSituacao_2
     situacao_modificada_em: '31/12/2010 12:28:54'
@@ -273,7 +295,7 @@ Veiculo:
     placa: ABC-1234
     url: volkswagen/voyage-teste/abc-1234
     created_at: '24/12/2010 23:39:20'
-    updated_at: '24/12/2010 23:39:20'
+    updated_at: '31/12/2010 17:26:28'
   Veiculo_2:
     modelo: 'Uno teste'
     cor: preto
@@ -332,6 +354,27 @@ UserRole:
     name: admin
   UserRole_3:
     name: member
+VeiculoImagem:
+  VeiculoImagem_1:
+    Veiculo: Veiculo_1
+    Imagem: Imagem_3
+    ordem: '0'
+    ilustrativa: false
+    alt: ''
+    title: ''
+    descricao: ''
+    created_at: '2010-12-31 17:24:31'
+    updated_at: '2010-12-31 17:24:31'
+  VeiculoImagem_2:
+    Veiculo: Veiculo_1
+    Imagem: Imagem_1
+    ordem: '0'
+    ilustrativa: false
+    alt: ''
+    title: ''
+    descricao: ''
+    created_at: '2010-12-31 17:27:52'
+    updated_at: '2010-12-31 17:27:52'
 Combustivel:
   Combustivel_1:
     nome: Gasolina
@@ -353,6 +396,11 @@ Combustivel:
     abreviacao: GNV
     created_at: '2010-12-24 23:39:20'
     updated_at: '2010-12-24 23:39:20'
+  Combustivel_5:
+    nome: Flex
+    abreviacao: A/G
+    created_at: '2010-12-31 17:25:50'
+    updated_at: '2010-12-31 17:26:10'
 User:
   User_1:
     name: admin
