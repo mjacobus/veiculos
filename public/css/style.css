@@ -12,6 +12,11 @@ body {
     margin-top: 20px;
 }
 
+textarea {
+    font-size: 12px;
+    
+}
+
 table {
     width:100%;
 }

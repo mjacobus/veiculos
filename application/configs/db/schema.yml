@@ -79,6 +79,24 @@ ExceptionLog:
         exception: []
         message: []
 
+Configuration:
+  columns:
+    id:
+      type: integer
+      primary: true
+      autoincrement: true
+    enabled:
+      type: boolean
+      notnull: true
+      default: false
+    config:
+      type: string(255)
+      unique: true
+      notnull: true
+    value:
+      type: text
+  actAs: [Timestampable]
+
 Marca:
   tableName: marca
   columns:

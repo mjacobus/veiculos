@@ -15,20 +15,7 @@ class Admin_Model_Marca extends App_Model_Crud
     public function init()
     {
         $this->_form = new Admin_Form_Marca($this);
-    }
-
-    /**
-     * Get the query for searching registers
-     * @param array $params
-     * @return Doctrine_Query
-     */
-    public function getQuery(array $params = array())
-    {
         $this->setSearchFields($this->_orderMapping);
-        
-        $dql = parent::getQuery($params);
-
-        return $dql;
     }
 
     /**
@@ -41,10 +28,9 @@ class Admin_Model_Marca extends App_Model_Crud
         $form->imagem_descricao->setValue($record->Logo->descricao);
 
         $helper = new App_View_Helper_Image();
-        $image = $helper->image($record->Logo->arquivo,'150x100');
+        $image = $helper->image($record->Logo->arquivo, '150x100');
 
         $form->imagem->setImage($image);
-
     }
 
 }

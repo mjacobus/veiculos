@@ -15,14 +15,12 @@ class Admin_Form_Imagem extends App_Form_Abstract
     /**
      * Add Descricao wich is a Zend_Form_Element_Text
      * length 255
-     * @return Admin_Form_Marca
      */
     public function addDescricao()
     {
         $element = $this->getTextElement('descricao', 'Descrição')
                 ->setDecorators($this->_elementDecorators);
         $this->addElement($element);
-        return $this;
     }
 
     /**
@@ -35,7 +33,6 @@ class Admin_Form_Imagem extends App_Form_Abstract
 
     /**
      * Add file wich is a Zend_Form_Element_File
-     * @return Admin_Form_ImageUpload
      */
     public function addArquivo()
     {
@@ -63,12 +60,10 @@ class Admin_Form_Imagem extends App_Form_Abstract
         }
 
         $this->addElement($element);
-        return $this;
     }
 
     /**
      * Add image wich is a Zend_Form_Element_File
-     * @return Admin_Form_ImageUpload
      */
     public function addImagem()
     {
@@ -79,7 +74,6 @@ class Admin_Form_Imagem extends App_Form_Abstract
             $element->setLabel('Imagem')->setDecorators($this->_elementDecorators);
             $this->addElement($element);
         }
-        return $this;
     }
 
 }

@@ -56,6 +56,13 @@ class Admin_Menu_Top extends Zend_Navigation
             )),
             new App_Navigation_Page_Mvc(array(
                 'route' => 'default',
+                'label' => 'Config',
+                'module' => 'admin',
+                'controller' => 'configuration',
+                'pages' => array()
+            )),
+            new App_Navigation_Page_Mvc(array(
+                'route' => 'default',
                 'label' => 'Log',
                 'module' => 'admin',
                 'controller' => 'exception-log',

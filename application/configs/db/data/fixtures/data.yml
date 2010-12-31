@@ -104,12 +104,12 @@ Imagem:
     updated_at: '2010-12-29 16:52:33'
 ExceptionLog:
   ExceptionLog_1:
-    parameters: "Array\n(\n    [module] => admin\n    [controller] => imagem\n    [action] => update\n    [id] => 14\n    [per-page] => 12\n    [descricao] => Logotio da Peugeot\n    [MAX_FILE_SIZE] => 2097152\n    [submit] => Salvar\n)\n"
+    parameters: "Array\n(\n    [module] => admin\n    [controller] => configuration\n    [action] => create\n    [config] => site.title\n    [value] => value\n    [enabled] => 0\n)\n"
     exception: Doctrine_Validator_Exception
-    message: "Validation failed in class Imagem\n\n  1 field had validation error:\n\n    * 1 validator failed on arquivo (unique)\n"
-    stack_trace: "#0 /usr/share/php/Doctrine/Connection.php(1395): Doctrine_Transaction->commit(NULL)\n#1 /usr/share/php/Doctrine/Connection/UnitOfWork.php(143): Doctrine_Connection->commit()\n#2 /usr/share/php/Doctrine/Record.php(1705): Doctrine_Connection_UnitOfWork->saveGraph(Object(Imagem))\n#3 /var/www/veiculos/application/modules/admin/models/Imagem.php(79): Doctrine_Record->save()\n#4 /var/www/veiculos/library/App/Model/Crud.php(274): Admin_Model_Imagem->_saveRecord(Object(Imagem), Array)\n#5 /var/www/veiculos/library/App/Model/Crud.php(248): App_Model_Crud->save(Array, '14')\n#6 /var/www/veiculos/application/modules/admin/controllers/ImagemController.php(27): App_Model_Crud->update(Array, '14')\n#7 /var/www/veiculos/library/App/Controller/Crud/Abstract.php(146): Admin_ImagemController->doUpdate(Object(Zend_Controller_Request_Http), Object(Admin_Form_Imagem))\n#8 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Action.php(513): App_Controller_Crud_Abstract->updateAction()\n#9 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('updateAction')\n#10 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))\n#11 /usr/share/php/ZendFramework-1.11.1/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()\n#12 /usr/share/php/ZendFramework-1.11.1/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()\n#13 /var/www/veiculos/public/index.php(26): Zend_Application->run()\n#14 {main}"
-    created_at: '2010-12-30 18:47:46'
-    updated_at: '2010-12-30 18:47:46'
+    message: "Validation failed in class Configuration\n\n  1 field had validation error:\n\n    * 1 validator failed on config (unique)\n"
+    stack_trace: "#0 /usr/share/php/Doctrine/Connection.php(1395): Doctrine_Transaction->commit(NULL)\n#1 /usr/share/php/Doctrine/Connection/UnitOfWork.php(143): Doctrine_Connection->commit()\n#2 /usr/share/php/Doctrine/Record.php(1705): Doctrine_Connection_UnitOfWork->saveGraph(Object(Configuration))\n#3 /var/www/veiculos/library/App/Model/Crud.php(303): Doctrine_Record->save()\n#4 /var/www/veiculos/library/App/Model/Crud.php(275): App_Model_Crud->_saveRecord(Object(Configuration), Array)\n#5 /var/www/veiculos/library/App/Model/Crud.php(239): App_Model_Crud->save(Array)\n#6 /var/www/veiculos/library/App/Controller/Crud/Abstract.php(67): App_Model_Crud->create(Array)\n#7 /var/www/veiculos/library/App/Controller/Crud/Abstract.php(120): App_Controller_Crud_Abstract->doCreate(Object(Zend_Controller_Request_Http), Object(Admin_Form_Configuration))\n#8 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Action.php(513): App_Controller_Crud_Abstract->createAction()\n#9 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Dispatcher/Standard.php(295): Zend_Controller_Action->dispatch('createAction')\n#10 /usr/share/php/ZendFramework-1.11.1/library/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))\n#11 /usr/share/php/ZendFramework-1.11.1/library/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()\n#12 /usr/share/php/ZendFramework-1.11.1/library/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()\n#13 /var/www/veiculos/public/index.php(26): Zend_Application->run()\n#14 {main}"
+    created_at: '2010-12-31 12:29:41'
+    updated_at: '2010-12-31 12:29:41'
 Marca:
   Marca_1:
     nome: 'Alfa Romeo'
@@ -219,6 +219,25 @@ Marca:
     url: volvo
     created_at: '2010-12-24 23:39:20'
     updated_at: '2010-12-24 23:39:20'
+Configuration:
+  Configuration_1:
+    enabled: true
+    config: site.hostname.www
+    value: www.site.com
+    created_at: '2010-12-31 12:29:30'
+    updated_at: '2010-12-31 12:33:50'
+  Configuration_2:
+    enabled: true
+    config: site.hostname.iphone
+    value: iphone.site.com
+    created_at: '2010-12-31 12:29:53'
+    updated_at: '2010-12-31 12:32:14'
+  Configuration_3:
+    enabled: true
+    config: site.hostname.mobile
+    value: mobile.site.com
+    created_at: '2010-12-31 12:33:00'
+    updated_at: '2010-12-31 12:33:26'
 VeiculoTipo:
   VeiculoTipo_1:
     nome: Motocicleta
@@ -245,16 +264,16 @@ Veiculo:
     Combustivel: Combustivel_1
     Tipo: VeiculoTipo_2
     Situacao: VeiculoSituacao_2
-    situacao_modificada_em: '2010-12-30 18:42:07'
+    situacao_modificada_em: '31/12/2010 12:28:54'
     valor: '500.056,00'
     exibir_valor: true
     ano: '1984'
     ano_modelo: '1985'
     ordem: '0'
     placa: ABC-1234
-    url: /volkswagen/voyage-teste/abc-1234
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+    url: volkswagen/voyage-teste/abc-1234
+    created_at: '24/12/2010 23:39:20'
+    updated_at: '24/12/2010 23:39:20'
   Veiculo_2:
     modelo: 'Uno teste'
     cor: preto
@@ -262,16 +281,16 @@ Veiculo:
     Combustivel: Combustivel_1
     Tipo: VeiculoTipo_2
     Situacao: VeiculoSituacao_2
-    situacao_modificada_em: '2010-12-30 18:42:07'
+    situacao_modificada_em: '31/12/2010 12:28:54'
     valor: '1.500.056,00'
     exibir_valor: true
     ano: '1999'
     ano_modelo: '2000'
     ordem: '0'
     placa: ABC-1235
-    url: /fiat/uno-teste/abc-1235
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+    url: fiat/uno-teste/abc-1235
+    created_at: '24/12/2010 23:39:20'
+    updated_at: '24/12/2010 23:39:20'
   Veiculo_3:
     modelo: 'Uno teste 1'
     cor: preto
@@ -279,16 +298,16 @@ Veiculo:
     Combustivel: Combustivel_1
     Tipo: VeiculoTipo_2
     Situacao: VeiculoSituacao_2
-    situacao_modificada_em: '2010-12-30 18:42:07'
+    situacao_modificada_em: '31/12/2010 12:28:54'
     valor: '1.500.056,00'
     exibir_valor: true
     ano: '1999'
     ano_modelo: '2000'
     ordem: '0'
     placa: ABC-1231
-    url: /fiat/uno-teste-1/abc-1231
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+    url: fiat/uno-teste-1/abc-1231
+    created_at: '24/12/2010 23:39:20'
+    updated_at: '24/12/2010 23:39:20'
   Veiculo_4:
     modelo: 'Uno teste 2'
     cor: preto
@@ -296,16 +315,16 @@ Veiculo:
     Combustivel: Combustivel_1
     Tipo: VeiculoTipo_2
     Situacao: VeiculoSituacao_2
-    situacao_modificada_em: '2010-12-30 18:42:07'
+    situacao_modificada_em: '31/12/2010 12:28:54'
     valor: '1.500.056,00'
     exibir_valor: true
     ano: '1999'
     ano_modelo: '2000'
     ordem: '0'
     placa: ABC-1232
-    url: /fiat/uno-teste-2/abc-1232
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+    url: fiat/uno-teste-2/abc-1232
+    created_at: '24/12/2010 23:39:20'
+    updated_at: '24/12/2010 23:39:20'
 UserRole:
   UserRole_1:
     name: guest
@@ -340,7 +359,7 @@ User:
     email: admin@somedomain.com
     login: admin
     enabled: true
-    password: c182237b58f9fb7839f61d8917efe897e8940626
+    password: c21c8f3d782a4926d5917ab2d046486466a9a0c3
     password_recovery_hash: null
     password_recovery_expiration_date: null
     Role: UserRole_2

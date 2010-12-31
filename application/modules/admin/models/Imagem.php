@@ -16,23 +16,9 @@ class Admin_Model_Imagem extends App_Model_Crud
     public function init()
     {
         $this->_form = new Admin_Form_Imagem($this);
+        $this->setSearchFields($this->_orderMapping);
         $this->setCrudMessage(self::DUPLICATED_UK,
             'Esta imagem já foi cadastrada');
-
-    }
-
-    /**
-     * Get the query for searching registers
-     * @param array $params
-     * @return Doctrine_Query
-     */
-    public function getQuery(array $params = array())
-    {
-        $this->setSearchFields($this->_orderMapping);
-
-        $dql = parent::getQuery($params);
-
-        return $dql;
     }
 
     /**
@@ -91,7 +77,7 @@ class Admin_Model_Imagem extends App_Model_Crud
     public function postPopulateForm(Doctrine_Record $record, App_Form_Abstract $form)
     {
         $filename = $form->getValue('arquivo');
-        
+
         $helper = new App_View_Helper_Image();
         $image = $helper->image($filename, '400x267');
 
