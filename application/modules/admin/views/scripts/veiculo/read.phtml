@@ -1,0 +1,81 @@
+<div id="veiculo-read" class="form-elements">
+
+
+
+    <?
+
+    $record= $this->record;
+    $fields = array(
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
+    );
+    ?>
+
+    <ul>
+        <li class="principal">
+            <label>Principal</label>
+            <ul>
+                <li><label>Tipo</label><span><?= $record->Tipo->nome ?></span></li>
+                <li><label>Marca</label><span><?= $record->Marca->nome ?></span></li>
+                <li><label>Modelo</label><span><?= $record->modelo ?></span></li>
+                <li><label>Placa</label><span><?= $record->placa ?></span></li>
+                <li><label>Cor</label><span><?= $record->cor ?></span></li>
+                <li><label>Combustível</label><span><?= $record->Combustivel->nome ?></span></li>
+                <li><label>Situação</label><span><?= $record->Situacao->nome ?> (<?= $record->situacao_modificada_em ?>)</span></li>
+                <li><label>Ano/Modelo</label><span><?= $record->ano ?>/<?= $record->ano_modelo ?></span></li>
+                <li><label>Valor</label><span><?= $record->valor ?> (<?= $record->exibir_valor ? '' : 'não '?>exibir)</span></li>
+                <li><label>Ordem</label><span><?= $record->ordem ?></span></li>
+                <li><label>Criado em</label><span><?= $record->created_at ?></span></li>
+                <li><label>Modificado em</label><span><?= $record->updated_at ?></span></li>
+                <li><label>Uri</label><span><?= $record->url ?></span></li>
+            </ul>
+        </li>
+        
+        <li class="caracteristicas">
+            <label>Características</label>
+            <ul>
+            <? foreach($record->Caracteristicas as $caracteristica) : ?>
+                <li><label><?= $caracteristica->ordem ?></label><span><?= $caracteristica->descricao ?></span></li>
+            <? endforeach ?>
+            </ul>
+        </li>
+        
+        <li class="imagens">
+            <label>Imagens</label>
+            <ul class="imagens">
+            <? foreach($record->Imagens as $imagem) : ?>
+                <li>
+                    <div class="image">
+                        <img src="<?= $this->image($imagem->Imagem->arquivo, '200x134') ?>" alt="<?= $imagem->alt ?>" title="<?= $imagem->title ?>"/>
+                    </div>
+                    <ul>
+                        <li><label>Ordem</label><span><?= $imagem->ordem ?></span></li>
+                        <li><label>Alt</label><span><?= $imagem->alt ?></span></li>
+                        <li><label>Title</label><span><?= $imagem->title ?></span></li>
+                        <li><label>Descrição</label><span class="descricao"><?= $imagem->descricao ?></span></li>
+                        <li><label>Ilustrativa</label><span><?= $imagem->ilustrativa ? 'Sim' : 'Não'?></span></li>
+                    </ul>
+                </li>
+            <? endforeach ?>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    (function(){
+        var higher = 0;
+        $('ul.imagens > li').each(function(i){
+            if($(this).height() > higher) {
+                higher = $(this).height();
+            }
+            if ((i+1)%3 == 0) {
+                $('ul.imagens > li:lt('+(i+1)+')').each(function(){
+                    if (!$(this).hasClass('ajustedHeight')) {
+                        $(this).addClass('ajustedHeight').css('height',higher + 'px');
+                    }
+                });
+                higher = 0;
+            }
+        });
+    })();
+</script>

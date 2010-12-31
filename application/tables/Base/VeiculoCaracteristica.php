@@ -36,6 +36,7 @@ abstract class Base_VeiculoCaracteristica extends Doctrine_Record
              'type' => 'integer',
              'unsigned' => true,
              'notnull' => true,
+             'default' => 0,
              ));
         $this->hasColumn('descricao', 'string', 255, array(
              'type' => 'string',

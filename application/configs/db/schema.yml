@@ -247,11 +247,13 @@ Veiculo:
       foreign: veiculo_id
       local: id
       type: many
+      orderBy: ordem
     Imagens:
       class: VeiculoImagem
       foreign: veiculo_id
       local: id
       type: many
+      orderBy: ordem
 
 VeiculoCaracteristica:
   tableName: veiculo_caracteristica
@@ -269,6 +271,7 @@ VeiculoCaracteristica:
       type: integer
       unsigned: true
       notnull: true
+      default: 0
     descricao:
       type: string(255)
       notnull: true

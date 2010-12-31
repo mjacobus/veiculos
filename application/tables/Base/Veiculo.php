@@ -146,11 +146,13 @@ abstract class Base_Veiculo extends Doctrine_Record
 
         $this->hasMany('VeiculoCaracteristica as Caracteristicas', array(
              'local' => 'id',
-             'foreign' => 'veiculo_id'));
+             'foreign' => 'veiculo_id',
+             'orderBy' => 'ordem'));
 
         $this->hasMany('VeiculoImagem as Imagens', array(
              'local' => 'id',
-             'foreign' => 'veiculo_id'));
+             'foreign' => 'veiculo_id',
+             'orderBy' => 'ordem'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);

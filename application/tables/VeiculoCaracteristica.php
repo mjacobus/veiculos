@@ -13,4 +13,9 @@
 class VeiculoCaracteristica extends Base_VeiculoCaracteristica
 {
 
+    public function setOrdem($value)
+    {
+        $this->_set('ordem', (int) $value);
+    }
+
 }

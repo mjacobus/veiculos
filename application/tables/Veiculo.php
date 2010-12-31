@@ -22,14 +22,10 @@ class Veiculo extends Base_Veiculo
      */
     public function getImage()
     {
-        $dql = Doctrine_Query::create()
-                ->from('VeiculoImagem VI')
-                ->leftJoin('VI.Imagem')
-                ->where('veiculo_id = ?', $this->id)
-                ->orderBy('ordem ASC');
-        if ($dql->count()) {
-            $image = $dql->fetchOne();
-            return $image;
+        $imagens = $this->Imagens;
+
+        if ($imagens->count()) {
+            return $imagens[0];
         }
 
         return false;
@@ -40,14 +36,14 @@ class Veiculo extends Base_Veiculo
      */
     public function preSave()
     {
-        $this->calculateUrl();
-        $this->changeStatusDate();
+        $this->_calculateUrl();
+        $this->_changeStatusDate();
     }
 
     /**
      * calculates and sets url
      */
-    private function calculateUrl()
+    private function _calculateUrl()
     {
         $urlParts = array(
             $this->Marca->nome,
@@ -56,7 +52,7 @@ class Veiculo extends Base_Veiculo
         );
 
         $url = App_String::arrayToUrl($urlParts);
-
+        $url = trim($url, '/');
         $this->_set('url', $url);
     }
 
@@ -89,7 +85,7 @@ class Veiculo extends Base_Veiculo
     /**
      * change the date the vehicle had the satus changed
      */
-    public function changeStatusDate()
+    private function _changeStatusDate()
     {
         $modified = $this->getModified();
 
@@ -99,6 +95,44 @@ class Veiculo extends Base_Veiculo
                 $this->situacao_modificada_em = $date->toString('YYYY-MM-dd HH:mm:ss');
             }
         }
+    }
+
+    /**
+     * Get situacao modificada em
+     * @return string
+     */
+    public function getSituacaoModificadaEm()
+    {
+        return $this->_getBrDateTime('situacao_modificada_em');
+    }
+
+    /**
+     * Get situacao created at
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->_getBrDateTime('created_at');
+    }
+
+    /**
+     * Get situacao updated at
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->_getBrDateTime('updated_at');
+    }
+
+    /**
+     * Get br date time
+     * @param string $field
+     * @return string
+     */
+    private function _getBrDateTime($field)
+    {
+        $date = new Zend_Date($this->_get($field, 'YYYY-MM-dd HH:mm:ss'));
+        return $date->toString('dd/MM/YYYY HH:mm:ss');
     }
 
 }

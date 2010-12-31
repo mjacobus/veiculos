@@ -1,5 +1,9 @@
+* {
+    font-family: Verdana,sans-serif;
+}
+
 html,body {
-    font-size: 10px;
+    font-size: 12px;
     margin: 0;
     font-family: Verdana, sans-serif;
 }
@@ -559,7 +563,7 @@ div.counter {
 
 div.form-elements {
     float: left;
-   
+
     padding: 5px;
     margin: 0 auto;
     padding: 5px;
@@ -765,3 +769,55 @@ ul.suggest li.active {
 }
 
 #error-imagem_id {display: none}
+
+
+#veiculo-read ul{
+    margin:0;
+    padding:0;
+}
+#veiculo-read li{
+    list-style: none;
+    clear:both;
+}
+
+#veiculo-read li {
+    padding-top: 10px;
+}
+#veiculo-read li li{
+     border: 1px solid #eee;
+     float: left;
+     clear: none;
+     width: 378px;
+     margin:0 5px;
+     padding:2px;
+}
+#veiculo-read label {
+    font-weight: bold;
+}
+#veiculo-read li li label {
+    font-weight: normal;
+    background: none repeat scroll 0 0 #eee;
+    min-width: 80px;
+    padding: 0 5px;
+    margin:0;
+}
+#veiculo-read ul li ul li span {
+    padding: 0 5px;
+}
+
+#veiculo-read ul li ul li label {
+    float: left;
+}
+#veiculo-read li.imagens ul li{
+    float:left;
+    margin: 5px;
+    width: 200px;
+}
+
+#veiculo-read li.imagens ul li ul {
+    float:left;
+}
+#veiculo-read li.imagens ul li ul li{
+    float:none;
+    margin:0;
+}

@@ -18,7 +18,7 @@ class Admin_Form_VeiculoCaracteristica extends App_Form_Abstract
      */
     public function addOrdem()
     {
-        $element = $this->getTextElement('ordem', 'Prioridade');
+        $element = $this->getTextElement('ordem', 'Prioridade',false);
         $element->addValidator(new Zend_Validate_Int());
         $element->addValidator(new Zend_Validate_Between(0, 500));
         $this->addElement($element);

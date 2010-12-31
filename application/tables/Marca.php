@@ -19,14 +19,14 @@ class Marca extends Base_Marca
     public function preSave()
     {
         if ($this->isModified()) {
-            $this->calculateUrl();
+            $this->_calculateUrl();
         }
     }
 
     /**
      * calculates and sets url
      */
-    private function calculateUrl()
+    private function _calculateUrl()
     {
         $modified = $this->getModified();
 
