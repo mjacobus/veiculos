@@ -73,7 +73,7 @@ $(document).ready(function(){
                 success: function(json){
                     if (typeof json == 'string')
                         json = eval('(' + json + ')');
-                    showCrudMessages(json.messages,$('div.form-elements'));
+                    showCrudMessages(json.messages,$('div.messages-container'));
                     if (json.success && (json.goTo != undefined && json.goTo != '' && json.goTo)) {
                         var parts = json.goTo.split('#');
                         window.location.href = json.goTo;
