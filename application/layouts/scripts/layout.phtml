@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
+        <link rel="SHORTCUT ICON" href="/public/img/icon.ico" type="image/x-icon" />
         <?= $this->headTitle() ?>
         <?= $this->headMeta()
             ->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
@@ -12,14 +13,14 @@
         <?= $this->headStyle() ?>
         <?= $this->headScript() ?>
         <?//= $this->jQuery()->setVersion('1.4')->uiEnable()->setUiVersion('1.7.2') ?>
-        <link rel="SHORTCUT ICON" href="/public/img/icon.ico" type="image/x-icon" />
         <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/jquery-1.4.2.min.js" charset="UTF-8"></script>
         <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/jquery.DOMWindow.js" charset="UTF-8"></script>
         <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/jquery.inputSuggest.js" charset="UTF-8"></script>
-        <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/forms.js" charset="UTF-8"></script>
         <script type="text/javascript">
             var baseUrl = "<?= $this->baseUrl() ?>";
+            var crudUrl = "<?= $this->getCrudUrl() ?>";
         </script>
+        <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/forms.js" charset="UTF-8"></script>
     </head>
     <body>
         <div id="content">

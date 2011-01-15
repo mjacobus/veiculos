@@ -568,12 +568,21 @@ div.counter {
 
 div.form-elements {
     float: left;
-
     padding: 5px;
     margin: 0 auto;
     padding: 5px;
     margin-top: 40px;
 }
+
+div.form-elements.delete {
+    padding: 5px;
+    margin: 0 auto;
+    padding: 5px;
+    margin-top: 0px;
+    width: 780px;
+}
+
+
 
 div.label-and-element div {
     float:left;
@@ -698,7 +707,7 @@ body, #menuTop,.ui-dialog .ui-dialog-content {
 }
 
 
-table {
+table,#delete {
     margin-top: 15px;
 }
 
@@ -825,4 +834,15 @@ ul.suggest li.active {
 #veiculo-read li.imagens ul li ul li{
     float:none;
     margin:0;
+}
+
+.deleteAll {
+    float:left;
+    padding: 0 5px;
+    margin: 0;
+    margin-bottom: -10px;
+}
+
+.clear {
+    clear:both;
 }

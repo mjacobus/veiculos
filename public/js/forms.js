@@ -56,6 +56,37 @@ $(document).ready(function(){
         suggestionField: 'descricao'
     });
 
+    // for removal
+    $('#id-all').change(function(){
+        $('input.crud_id').attr('checked',$(this).attr('checked'));
+    });
+
+    $('#delete').submit(function(e){
+        e.preventDefault();
+
+        if (!$('input.crud_id:checked').length > 0) {
+            alert("Você deve escolher pelo menos um item.");
+        }
+        var form = $(this);
+
+        $.ajax({
+            data: $(this).serialize(),
+            url: crudUrl + '/delete/',
+            type: 'POST',
+            success: function(json){
+                if (typeof json == 'string')
+                    json = eval('(' + json + ')');
+                showCrudMessages(json.messages,form);
+                showFormErrors(json.formErrors, form);
+                if (json.success && (json.goTo != undefined && json.goTo != '' && json.goTo !== window.location.href)) {
+                    var parts = json.goTo.split('#');
+                    window.location.href = json.goTo;
+                }
+            }
+        });
+        ;
+    });
+
 
 
 });

@@ -2,30 +2,38 @@
     <?= new Admin_Form_Search() ?>
 </div>
 
-<table>
-    <tr>
-        <th class="id all"><?= $this->cc('all') ?></th>
-        <th><?= $this->order('Nome') ?></th>
-        <th><?= $this->order('Abreviado','abreviacao') ?></th>
-        <th class="actions">
-            <a href="<?= $this->c() ?>" class="ajax create"><img src="<?= $this->ci() ?>" alt="adicionar" /></a>
-        </th>
-    </tr>
+<form id="delete" action="<?= $this->getCrudUrl('delete')?>" method="post">
+    <div class="form-elements delete clear"></div>
+    <div class="clear"></div>
+    <?= $this->flash() ?>
+    <input type="image" class="deleteAll" id="deleteAll" src="<?= $this->di() ?>" title="excluir selecionados" alt="excluir selecionados" />
+    <label for="deleteAll" class="deleteAll">Excluir Selecionados</label>
+    <div class="clear"></div>
+    <table>
+        <tr>
+            <th class="id all"><?= $this->cc('all') ?></th>
+            <th><?= $this->order('Nome') ?></th>
+            <th><?= $this->order('Abreviado','abreviacao') ?></th>
+            <th class="actions">
+                <a href="<?= $this->c() ?>" class="ajax create"><img src="<?= $this->ci() ?>" alt="adicionar" /></a>
+            </th>
+        </tr>
 
 
-<?php foreach($this->records as $i => $record) : ?>
-    <?php $id = $record->id ?>
-    <tr class="<?= ($i%2) ? 'alt' : '' ?>">
-       <td class="id"><?= $this->cc($id) ?></td>
-       <td><?= $record->nome ?></td>
-       <td><?= $record->abreviacao ?></td>
+    <?php foreach($this->records as $i => $record) : ?>
+        <?php $id = $record->id ?>
+        <tr class="<?= ($i%2) ? 'alt' : '' ?>">
+           <td class="id"><?= $this->cc($id) ?></td>
+           <td><?= $record->nome ?></td>
+           <td><?= $record->abreviacao ?></td>
 
-        <td class="actions">
-            <a href="<?= $this->u($id) ?>" title="editar" class="ajax update"><img src="<?= $this->ui() ?>" title="editar" alt="editar" /></a>
-            <a href="<?= $this->d($id) ?>" title="excluir" class="ajax delete"><img src="<?= $this->di() ?>" title="excluir" alt="excluir" /></a>
-        </td>
-    </tr>
-<?php endforeach ?>
-</table>
+            <td class="actions">
+                <a href="<?= $this->u($id) ?>" title="editar" class="ajax update"><img src="<?= $this->ui() ?>" title="editar" alt="editar" /></a>
+                <a href="<?= $this->d($id) ?>" title="excluir" class="ajax delete"><img src="<?= $this->di() ?>" title="excluir" alt="excluir" /></a>
+            </td>
+        </tr>
+    <?php endforeach ?>
+    </table>
+</form>
 
 <?= $this->pagination()->render() ?>
