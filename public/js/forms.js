@@ -14,10 +14,10 @@ $(document).ready(function(){
             success: function(json) {
                 if (typeof json == 'string')
                     json = eval('(' + json + ')');
-                showCrudMessages(json.messages,form);
+                showCrudMessages(json.messages,form.find('div.form-elements'));
                 showFormErrors(json.formErrors, form);
                 if (json.success && (json.goTo != undefined && json.goTo != '' && json.goTo !== window.location.href)) {
-                var parts = json.goTo.split('#');
+                    var parts = json.goTo.split('#');
                     window.location.href = json.goTo;
                 }
             },
@@ -61,30 +61,28 @@ $(document).ready(function(){
         $('input.crud_id').attr('checked',$(this).attr('checked'));
     });
 
-    $('#delete').submit(function(e){
-        e.preventDefault();
-
-        if (!$('input.crud_id:checked').length > 0) {
-            alert("Você deve escolher pelo menos um item.");
-        }
+    $('a.ajax.delete').click(function(){
         var form = $(this);
+        var message = "Tem certeza que deseja excluir este registro?";
+        var url = $(this).attr('href');
 
-        $.ajax({
-            data: $(this).serialize(),
-            url: crudUrl + '/delete/',
-            type: 'POST',
-            success: function(json){
-                if (typeof json == 'string')
-                    json = eval('(' + json + ')');
-                showCrudMessages(json.messages,form);
-                showFormErrors(json.formErrors, form);
-                if (json.success && (json.goTo != undefined && json.goTo != '' && json.goTo !== window.location.href)) {
-                    var parts = json.goTo.split('#');
-                    window.location.href = json.goTo;
+        if (confirm(message)) {
+            $.ajax({
+                url: url,
+                type: 'POST',
+                success: function(json){
+                    if (typeof json == 'string')
+                        json = eval('(' + json + ')');
+                    showCrudMessages(json.messages,$('div.form-elements'));
+                    if (json.success && (json.goTo != undefined && json.goTo != '' && json.goTo)) {
+                        var parts = json.goTo.split('#');
+                        window.location.href = json.goTo;
+                    }
                 }
-            }
-        });
-        ;
+            });
+        }
+
+        return false;
     });
 
 
@@ -123,13 +121,14 @@ function unload()
     $('#ajax-loader').closeDOMWindow();
 }
 
-function showCrudMessages(messages,form)
+function showCrudMessages(messages,parentContainer)
 {
-    var container = form.find('div.ui-widget');
+    var container = parentContainer.find('div.messages ul');
     if (container.length == 0) {
-        form.find('div.form-elements').prepend('<div class="ui-widget"></div>');
-        container = form.find('div.ui-widget');
+        parentContainer.prepend('<div class="messages"><ul></ul></div>');
+        container = parentContainer.find('div.messages ul:first');
     }
+    container.html('');
     var hasMessage = false;
     for (var type in messages) {
         if (messages[type].length > 0) {
@@ -145,24 +144,14 @@ function showCrudMessages(messages,form)
 }
 
 function showMessages(messages,container, type){
-
-    var messageClass = 'ui-state-error';
-    var iconClass = 'ui-icon-alert';
-    if (type == 'info') {
-        messageClass = 'ui-state-highlight';
-        iconClass = 'ui-icon-info';
-    }
-
     if (container.length > 0) {
-        var list = $('<div class="' + messageClass + ' ui-corner-all" style="padding: 0pt 0.7em;"></div>');
         var hasMessage = false;
         for(var i in messages) {
             hasMessage = true;
-            list.append('<span class="ui-icon ' + iconClass + '" style="float: left; margin-right: 0.3em;"/>');
-            list.append('<p class="'+ type +'">' + messages[i] + '</p>');
+            container.append('<li class="'+ type +'">' + messages[i] + '</li>');
         }
         if (hasMessage) {
-            container.html(list).show();
+            container.show();
         }
     } else {
         alertMessages(messages);

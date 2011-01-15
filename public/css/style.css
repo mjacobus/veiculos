@@ -14,7 +14,7 @@ body {
 
 textarea {
     font-size: 12px;
-    
+
 }
 
 table {
@@ -798,12 +798,12 @@ ul.suggest li.active {
     padding-top: 10px;
 }
 #veiculo-read li li{
-     border: 1px solid #eee;
-     float: left;
-     clear: none;
-     width: 378px;
-     margin:0 5px;
-     padding:2px;
+    border: 1px solid #eee;
+    float: left;
+    clear: none;
+    width: 378px;
+    margin:0 5px;
+    padding:2px;
 }
 #veiculo-read label {
     font-weight: bold;
@@ -845,4 +845,19 @@ ul.suggest li.active {
 
 .clear {
     clear:both;
+}
+
+div.messages {
+    border: 1px solid #eee;
+    padding: 5px;
+}
+
+div.messages li.error {
+    color:red;
+}
+div.messages li.success {
+    color:green;
+}
+div.messages li.warning {
+    color:gold;
 }
