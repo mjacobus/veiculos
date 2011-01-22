@@ -59,6 +59,8 @@ class Admin_Model_Veiculo extends App_Model_Crud
                 ->innerJoin('base.Tipo T')
                 ->innerJoin('base.Combustivel C');
 
+        $dql->addWhere('deleted_at IS NOT NULL');
+
         return $dql;
     }
 
