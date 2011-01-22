@@ -238,7 +238,7 @@ Veiculo:
       type: string(255)
       unique: true
       notnull: true
-  actAs: [Timestampable]
+  actAs: [Timestampable, SoftDelete]
   indexes:
     modelo:
       fields:

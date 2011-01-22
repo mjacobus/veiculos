@@ -3,274 +3,274 @@ VeiculoCaracteristica:
     Veiculo: Veiculo_1
     ordem: '2'
     descricao: '4 portas'
-    created_at: '2010-12-24 23:39:21'
-    updated_at: '2010-12-24 23:39:21'
+
+
   VeiculoCaracteristica_2:
     Veiculo: Veiculo_1
     ordem: '1'
     descricao: 'Dir. Hidráulica'
-    created_at: '2010-12-24 23:39:21'
-    updated_at: '2010-12-24 23:39:21'
+
+
 Imagem:
   Imagem_1:
     arquivo: 3264666538333963636564353166363137313761353263333237316135663862.png
     descricao: 'Logotipo Alfa Romeo'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:39:50'
+
+
   Imagem_2:
     arquivo: 6236616261643932636130316666356434356561396366613564623337643862.png
     descricao: 'Logotipo da Audi'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:46:42'
+
+
   Imagem_3:
     arquivo: 3962363838636134386231346634363838613439313364636530313865623461.png
     descricao: 'Logotipo da BMW'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:47:11'
+
+
   Imagem_4:
     arquivo: 3638326237386330373364626364633831306662613566623261653936646563.png
     descricao: 'Logotipo da Chevrolet'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-30 19:10:43'
+
+
   Imagem_5:
     arquivo: 6261353766366434336330303431316261613830376438353531643366653637.png
     descricao: 'Logotipo da Chrysler'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:47:52'
+
+
   Imagem_6:
     arquivo: 6531316238396161313534323461316135646338633131633362316636353639.png
     descricao: 'Logotipo da Citroën'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:48:13'
+
+
   Imagem_7:
     arquivo: 3430646635653464366634343139356538333265386238373931343832653463.png
     descricao: 'Logotipo da Fiat'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:48:54'
+
+
   Imagem_8:
     arquivo: 3434373062616661323134343738383165393834303334663533646265396538.png
     descricao: 'Logotipo da Ford'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:49:49'
+
+
   Imagem_9:
     arquivo: 6639303231356463396531646636396461346336366161346132363836363565.png
     descricao: 'Logotipo da Honda'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:50:00'
+
+
   Imagem_10:
     arquivo: 6561633432346531623831303134396363303761643062386633613735376139.png
     descricao: 'Logotipo Hyundai'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:50:23'
+
+
   Imagem_11:
     arquivo: 6132373335656332356565353730313335383739666361396238626639313232.png
     descricao: 'Logotipo da Mercedes'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:51:18'
+
+
   Imagem_12:
     arquivo: 3963326165353832306538323434323361383466623936316564623734653539.png
     descricao: 'Logotipo da Mitsubishi'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:51:49'
+
+
   Imagem_13:
     arquivo: 3637636437323063363466326566663535653830346531636235653132306661.png
     descricao: 'logotipo da Nissan'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-30 19:11:00'
+
+
   Imagem_14:
     arquivo: 3937323135396661333831303061623738653136383836393538383338356435.png
     descricao: 'Logotipo da Peugeot'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-30 19:09:18'
+
+
   Imagem_15:
     arquivo: 3534343434313964313830343739633133633334393833353962656463613861.png
     descricao: 'Logotipo da Renault'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:52:08'
+
+
   Imagem_16:
     arquivo: 6539336464366131323938613936633461303636323232366663383464343937.png
     descricao: 'Logotipo da Toyota'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:52:16'
+
+
   Imagem_17:
     arquivo: 6664636363353331323031393663636663613564333937633632356364633636.png
     descricao: 'logotipo da Volkswagen'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:52:24'
+
+
   Imagem_18:
     arquivo: 3861633364623234346435613234623038636137383765656138343162316535.png
     descricao: 'Logotipo da Volvo'
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-29 16:52:33'
+
+
 Marca:
   Marca_1:
     nome: 'Alfa Romeo'
     Logo: Imagem_1
     url: alfa-romeo
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-30 19:05:10'
+
+
   Marca_2:
     nome: Audi
     Logo: Imagem_2
     url: audi
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-24 23:39:19'
+
+
   Marca_3:
     nome: BMW
     Logo: Imagem_3
     url: bmw
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-30 19:04:43'
+
+
   Marca_4:
     nome: Chevrolet
     Logo: Imagem_4
     url: chevrolet
-    created_at: '2010-12-24 23:39:19'
-    updated_at: '2010-12-24 23:39:19'
+
+
   Marca_5:
     nome: Chrysler
     Logo: Imagem_5
     url: chrysler
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_6:
     nome: Citroën
     Logo: Imagem_6
     url: citroen
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_7:
     nome: Fiat
     Logo: Imagem_7
     url: fiat
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_8:
     nome: ford
     Logo: Imagem_8
     url: ford
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_9:
     nome: Honda
     Logo: Imagem_9
     url: honda
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_10:
     nome: Hyundai
     Logo: Imagem_10
     url: hyundai
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_11:
     nome: Mercedes
     Logo: Imagem_11
     url: mercedes
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_12:
     nome: Mitsubishi
     Logo: Imagem_12
     url: mitsubishi
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_13:
     nome: Nissan
     Logo: Imagem_13
     url: nissan
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_14:
     nome: Peugeot
     Logo: Imagem_14
     url: peugeot
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_15:
     nome: Renault
     Logo: Imagem_15
     url: renault
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_16:
     nome: Toyota
     Logo: Imagem_16
     url: toyota
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_17:
     nome: Volkswagen
     Logo: Imagem_17
     url: volkswagen
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Marca_18:
     nome: Volvo
     Logo: Imagem_18
     url: volvo
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
 Configuration:
   Configuration_1:
     enabled: true
     config: site.hostname.www
     value: www.site.com
-    created_at: '2010-12-31 12:29:30'
-    updated_at: '2010-12-31 12:33:50'
+
+
   Configuration_2:
     enabled: true
     config: site.hostname.iphone
     value: iphone.site.com
-    created_at: '2010-12-31 12:29:53'
-    updated_at: '2010-12-31 12:32:14'
+
+
   Configuration_3:
     enabled: true
     config: site.hostname.mobile
     value: mobile.site.com
-    created_at: '2010-12-31 12:33:00'
-    updated_at: '2010-12-31 12:33:26'
+
+
   Configuration_4:
     enabled: true
     config: site.name
     value: 'Nome da Loja'
-    created_at: '2010-12-31 15:48:19'
-    updated_at: '2010-12-31 15:48:19'
+
+
   Configuration_5:
     enabled: true
     config: site.address
     value: 'Avenida Abc , numero 456, sala 7 Bairro: Centro'
-    created_at: '2010-12-31 15:51:11'
-    updated_at: '2010-12-31 15:51:18'
+
+
   Configuration_6:
     enabled: true
     config: site.home.title
     value: 'Loja Abc'
-    created_at: '2010-12-31 15:52:03'
-    updated_at: '2010-12-31 15:52:03'
+
+
   Configuration_7:
     enabled: true
     config: site.phone.1
     value: '(51) 9999 9999'
-    created_at: '2010-12-31 15:53:12'
-    updated_at: '2010-12-31 15:53:12'
+
+
   Configuration_8:
     enabled: true
     config: site.phone.2
     value: '(51) 8888 8888'
-    created_at: '2010-12-31 15:53:46'
-    updated_at: '2010-12-31 15:53:46'
+
+
 VeiculoTipo:
   VeiculoTipo_1:
     nome: Motocicleta
     habilitacao: A
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   VeiculoTipo_2:
     nome: Carro
     habilitacao: B
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
 VeiculoSituacao:
   VeiculoSituacao_1:
     nome: Cancelado
@@ -294,8 +294,8 @@ Veiculo:
     ordem: '0'
     placa: ABC-1234
     url: volkswagen/voyage-teste/abc-1234
-    created_at: '24/12/2010 23:39:20'
-    updated_at: '31/12/2010 17:26:28'
+
+
   Veiculo_2:
     modelo: 'Uno teste'
     cor: preto
@@ -311,8 +311,8 @@ Veiculo:
     ordem: '0'
     placa: ABC-1235
     url: fiat/uno-teste/abc-1235
-    created_at: '24/12/2010 23:39:20'
-    updated_at: '24/12/2010 23:39:20'
+
+
   Veiculo_3:
     modelo: 'Uno teste 1'
     cor: preto
@@ -328,8 +328,8 @@ Veiculo:
     ordem: '0'
     placa: ABC-1231
     url: fiat/uno-teste-1/abc-1231
-    created_at: '24/12/2010 23:39:20'
-    updated_at: '24/12/2010 23:39:20'
+
+
   Veiculo_4:
     modelo: 'Uno teste 2'
     cor: preto
@@ -345,8 +345,8 @@ Veiculo:
     ordem: '0'
     placa: ABC-1232
     url: fiat/uno-teste-2/abc-1232
-    created_at: '24/12/2010 23:39:20'
-    updated_at: '24/12/2010 23:39:20'
+
+
 UserRole:
   UserRole_1:
     name: guest
@@ -363,8 +363,8 @@ VeiculoImagem:
     alt: ''
     title: ''
     descricao: ''
-    created_at: '2010-12-31 17:24:31'
-    updated_at: '2010-12-31 17:24:31'
+
+
   VeiculoImagem_2:
     Veiculo: Veiculo_1
     Imagem: Imagem_1
@@ -373,34 +373,34 @@ VeiculoImagem:
     alt: ''
     title: ''
     descricao: ''
-    created_at: '2010-12-31 17:27:52'
-    updated_at: '2010-12-31 17:27:52'
+
+
 Combustivel:
   Combustivel_1:
     nome: Gasolina
     abreviacao: G
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Combustivel_2:
     nome: Álcool
     abreviacao: A
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Combustivel_3:
     nome: Diesel
     abreviacao: D
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Combustivel_4:
     nome: 'Gás Natural'
     abreviacao: GNV
-    created_at: '2010-12-24 23:39:20'
-    updated_at: '2010-12-24 23:39:20'
+
+
   Combustivel_5:
     nome: Flex
     abreviacao: A/G
-    created_at: '2010-12-31 17:25:50'
-    updated_at: '2010-12-31 17:26:10'
+
+
 User:
   User_1:
     name: admin
@@ -412,5 +412,5 @@ User:
     password_recovery_expiration_date: null
     Role: UserRole_2
     image: null
-    created_at: '2010-12-24 23:39:18'
-    updated_at: '2010-12-24 23:39:18'
+
+

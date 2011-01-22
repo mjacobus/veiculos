@@ -155,6 +155,8 @@ abstract class Base_Veiculo extends Doctrine_Record
              'orderBy' => 'ordem'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
+        $softdelete0 = new Doctrine_Template_SoftDelete();
         $this->actAs($timestampable0);
+        $this->actAs($softdelete0);
     }
 }
